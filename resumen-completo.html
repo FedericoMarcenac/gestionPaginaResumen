@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resumen Completo | Gestión de Desarrollo de Software</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap');
+:root{--ink:#172033;--muted:#64748b;--line:#e2e8f0;--blue:#2563eb}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:Inter,system-ui,sans-serif;background:#f5f7fb;color:var(--ink)}
+code,.formula{font-family:'Fira Code',monospace}
+.hero{background:radial-gradient(circle at 85% 15%,#2563eb66,transparent 32%),linear-gradient(125deg,#0b1224,#102b58 60%,#164e83)}
+.panel{background:white;border:1px solid var(--line);border-radius:18px;box-shadow:0 5px 18px #0f172a08}
+.unit{scroll-margin-top:90px}
+.unit-head{display:flex;gap:14px;align-items:center;margin-bottom:20px}
+.unit-num{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-weight:900;font-size:18px;flex-shrink:0}
+h2{font-size:clamp(1.45rem,3vw,2rem);font-weight:900;letter-spacing:-.03em}
+h3{font-size:1.08rem;font-weight:800;margin:22px 0 9px}
+p{line-height:1.72;color:#475569;margin:8px 0}
+li{line-height:1.65;color:#475569;margin:5px 0}
+.callout{border-left:4px solid #3b82f6;background:#eff6ff;padding:14px 16px;border-radius:0 12px 12px 0;margin:14px 0}
+.warn{border-left-color:#f59e0b;background:#fffbeb}
+.good{border-left-color:#10b981;background:#ecfdf5}
+.bad{border-left-color:#ef4444;background:#fef2f2}
+.diagram{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;margin:15px 0}
+.node{flex:1;min-width:125px;background:#f8fafc;border:1px solid #cbd5e1;border-radius:12px;padding:13px;text-align:center;font-size:.86rem;font-weight:700}
+.arrow{display:grid;place-items:center;color:#64748b;font-size:20px}
+.tag{display:inline-block;padding:4px 9px;border-radius:999px;background:#e0e7ff;color:#3730a3;font-size:.72rem;font-weight:800}
+.formula-box{background:#101b31;color:#e2e8f0;padding:15px;border-radius:13px;margin:10px 0;overflow-x:auto}
+.formula-box strong{color:#93c5fd}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.88rem}
+th,td{padding:10px 12px;border:1px solid #e2e8f0;text-align:left;vertical-align:top}
+th{background:#f1f5f9;color:#1e293b}
+details{border:1px solid #e2e8f0;border-radius:12px;padding:12px 14px;margin:9px 0;background:#fff}
+summary{font-weight:800;cursor:pointer;color:#1e3a8a}
+.small{font-size:.84rem;color:#64748b}
+nav a{white-space:nowrap}
+nav a:hover{background:#eff6ff;color:#1d4ed8}
+.quiz-option{display:block;width:100%;text-align:left;padding:11px 13px;border:1px solid #cbd5e1;border-radius:10px;margin:7px 0;background:white}
+.quiz-option:hover{border-color:#2563eb;background:#eff6ff}
+.quiz-option.correct{background:#dcfce7;border-color:#16a34a}
+.quiz-option.wrong{background:#fee2e2;border-color:#dc2626}
+@media print{nav,.no-print,.hero .buttons{display:none!important}body{background:white}.panel{box-shadow:none;break-inside:avoid}.unit{break-before:page}.hero{background:#123;color:white!important}a{color:inherit;text-decoration:none}}
+</style>
+</head>
+<body>
+<header class="hero text-white px-5 py-12 md:py-16">
+ <div class="max-w-6xl mx-auto">
+  <div class="flex flex-wrap gap-2 mb-4"><span class="tag !bg-blue-400/20 !text-blue-100">APUNTE COMPLEMENTARIO</span><span class="tag !bg-emerald-400/20 !text-emerald-100">8 UNIDADES</span><span class="tag !bg-amber-400/20 !text-amber-100">TEORÍA + PRÁCTICA</span></div>
+  <h1 class="text-4xl md:text-6xl font-black tracking-tight max-w-4xl">Gestión de Desarrollo de Software</h1>
+  <p class="!text-blue-100 text-lg md:text-xl max-w-3xl mt-4">El gran resumen explicado: entendé cada concepto, conectá las unidades, aprendé a reconocer ejercicios y resolvé las fórmulas sin memorizar a ciegas.</p>
+  <div class="buttons flex flex-wrap gap-3 mt-7">
+   <a href="#mapa" class="bg-white text-blue-950 font-bold rounded-xl px-5 py-3">Empezar a estudiar <i class="fa-solid fa-arrow-down ml-2"></i></a>
+   <button onclick="window.print()" class="border border-white/40 rounded-xl px-5 py-3 font-bold"><i class="fa-solid fa-print mr-2"></i>Imprimir / Guardar PDF</button>
+  </div>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-10 max-w-3xl">
+   <div class="bg-white/10 rounded-xl p-4"><b class="text-3xl">8</b><div class="text-blue-100 text-sm">unidades conectadas</div></div>
+   <div class="bg-white/10 rounded-xl p-4"><b class="text-3xl">20+</b><div class="text-blue-100 text-sm">ejemplos explicados</div></div>
+   <div class="bg-white/10 rounded-xl p-4"><b class="text-3xl">12</b><div class="text-blue-100 text-sm">fórmulas clave</div></div>
+   <div class="bg-white/10 rounded-xl p-4"><b class="text-3xl">1</b><div class="text-blue-100 text-sm">objetivo: entender</div></div>
+  </div>
+ </div>
+</header>
+<nav class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200 shadow-sm">
+ <div class="max-w-6xl mx-auto px-3 py-2 flex gap-1 overflow-x-auto text-xs font-bold">
+  <a class="px-3 py-2 rounded-lg" href="index.html"><i class="fa-solid fa-house mr-1"></i>Inicio</a>
+  <a class="px-3 py-2 rounded-lg" href="#mapa">Mapa</a><a class="px-3 py-2 rounded-lg" href="#u1">U1</a><a class="px-3 py-2 rounded-lg" href="#u2">U2</a><a class="px-3 py-2 rounded-lg" href="#u3">U3</a><a class="px-3 py-2 rounded-lg" href="#u4">U4</a><a class="px-3 py-2 rounded-lg" href="#u5">U5</a><a class="px-3 py-2 rounded-lg" href="#u6">U6</a><a class="px-3 py-2 rounded-lg" href="#u7">U7</a><a class="px-3 py-2 rounded-lg" href="#u8">U8</a><a class="px-3 py-2 rounded-lg" href="#formulas">Fórmulas</a><a class="px-3 py-2 rounded-lg" href="#practica">Práctica</a><a class="px-3 py-2 rounded-lg" href="#quiz">Autoevaluación</a>
+ </div>
+</nav>
+<main class="max-w-6xl mx-auto px-4 py-8 space-y-8">
+<section id="mapa" class="panel p-6 md:p-8">
+ <span class="tag">ANTES DE MEMORIZAR</span><h2 class="mt-3">El mapa general de toda la materia</h2>
+ <p>La materia estudia cómo organizar un proyecto de software desde que aparece una necesidad hasta que el sistema se entrega, se mantiene y se mejora. Las unidades no son temas aislados: forman una secuencia.</p>
+ <div class="diagram">
+  <div class="node border-blue-300 bg-blue-50"><b>U1 · PERSONAS</b><br><span class="font-normal">¿Quién hace el trabajo?</span></div><div class="arrow">→</div>
+  <div class="node border-indigo-300 bg-indigo-50"><b>U2 · PROCESO</b><br><span class="font-normal">¿Qué hay que construir y cómo?</span></div><div class="arrow">→</div>
+  <div class="node border-cyan-300 bg-cyan-50"><b>U3 · MÉTRICAS</b><br><span class="font-normal">¿Cómo medimos?</span></div>
+ </div>
+ <div class="diagram">
+  <div class="node border-amber-300 bg-amber-50"><b>U4 · ESTIMAR</b><br><span class="font-normal">¿Cuánto esfuerzo?</span></div><div class="arrow">→</div>
+  <div class="node border-pink-300 bg-pink-50"><b>U5 · PLANIFICAR</b><br><span class="font-normal">¿En qué tiempo y costo?</span></div><div class="arrow">→</div>
+  <div class="node border-red-300 bg-red-50"><b>U6 · RIESGOS</b><br><span class="font-normal">¿Qué puede salir mal?</span></div>
+ </div>
+ <div class="diagram">
+  <div class="node border-purple-300 bg-purple-50"><b>U7 · MANTENER</b><br><span class="font-normal">¿Cómo evoluciona el sistema?</span></div><div class="arrow">→</div>
+  <div class="node border-emerald-300 bg-emerald-50"><b>U8 · MEJORAR</b><br><span class="font-normal">¿Cómo mejoramos el proceso?</span></div>
+ </div>
+ <div class="callout good"><b>Idea para recordar:</b> primero organizo personas y trabajo; después mido, estimo y planifico; anticipo riesgos; finalmente mantengo el producto y mejoro la forma de desarrollarlo.</div>
+ <h3>Un único ejemplo que atraviesa las ocho unidades</h3>
+ <p>Imaginá que una empresa quiere una aplicación para reservar turnos médicos. Hay médicos, pacientes, recepción y un equipo de desarrollo. Ese mismo caso nos sirve para entender toda la materia:</p>
+ <ol class="list-decimal pl-6">
+  <li><b>U1:</b> formamos el equipo y distribuimos responsabilidades.</li><li><b>U2:</b> definimos qué hará el sistema: buscar médico, elegir horario y confirmar turno.</li>
+  <li><b>U3:</b> medimos defectos, esfuerzo, tiempos y calidad.</li><li><b>U4:</b> estimamos cuántas personas, herramientas y semanas hacen falta.</li>
+  <li><b>U5:</b> ordenamos tareas y controlamos si avanzamos según lo previsto.</li><li><b>U6:</b> pensamos qué pasa si falla la base de datos o renuncia un programador.</li>
+  <li><b>U7:</b> corregimos errores y adaptamos el sistema cuando cambian las reglas.</li><li><b>U8:</b> mejoramos el proceso para que el próximo proyecto tenga menos demoras y defectos.</li>
+ </ol>
+</section>
+
+<section id="u1" class="unit panel p-6 md:p-8">
+ <div class="unit-head"><div class="unit-num bg-blue-100 text-blue-800">01</div><div><span class="tag">PERSONAS Y EQUIPO</span><h2>Unidad 1 · El personal y la gestión del proyecto</h2></div></div>
+ <h3>¿Qué es administrar un proyecto?</h3><p>Es planificar, organizar, dirigir, monitorear y controlar el trabajo para alcanzar un objetivo dentro de restricciones de tiempo, costo, alcance y calidad. No es solamente decirle a cada programador qué código escribir: también hay que facilitar el trabajo y resolver obstáculos.</p>
+ <h3>Las 4 P de Pressman</h3><div class="grid md:grid-cols-2 gap-3">
+  <div class="rounded-xl bg-blue-50 border border-blue-200 p-4"><b class="text-blue-900">1. Personal</b><p>Las personas, sus capacidades, motivación, comunicación y organización. Es la P más importante.</p><i class="small">Ejemplo: elegir desarrolladores que sepan colaborar y entender el problema.</i></div>
+  <div class="rounded-xl bg-indigo-50 border border-indigo-200 p-4"><b class="text-indigo-900">2. Producto</b><p>Qué se va a construir, para quién, con qué objetivos y funcionalidades.</p><i class="small">Ejemplo: sistema de turnos para pacientes y médicos.</i></div>
+  <div class="rounded-xl bg-cyan-50 border border-cyan-200 p-4"><b class="text-cyan-900">3. Proceso</b><p>Actividades, métodos y tareas para construir el producto.</p><i class="small">Ejemplo: analizar requisitos, diseñar, programar, probar y entregar.</i></div>
+  <div class="rounded-xl bg-amber-50 border border-amber-200 p-4"><b class="text-amber-900">4. Proyecto</b><p>Planificación y control de recursos, calendario, costos, riesgos y entregas.</p><i class="small">Ejemplo: definir quién hace cada módulo y para cuándo.</i></div>
+ </div>
+ <div class="callout"><b>Truco:</b> Personal = quién; Producto = qué; Proceso = cómo; Proyecto = cómo organizamos y controlamos el trabajo.</div>
+ <h3>Grupo vs. equipo</h3><table><tr><th>Grupo</th><th>Equipo</th></tr><tr><td>Personas que pueden trabajar por separado.</td><td>Personas coordinadas hacia un objetivo común.</td></tr><tr><td>Responsabilidades más individuales.</td><td>Responsabilidad compartida y complementaria.</td></tr><tr><td>Puede haber poca colaboración.</td><td>Hay comunicación, confianza y coordinación.</td></tr></table>
+ <p><b>Ejemplo:</b> cinco programadores que hacen cinco partes sin hablar forman un grupo. Si acuerdan interfaces, revisan código y se ayudan para entregar un único sistema, funcionan como equipo.</p>
+ <h3>Equipos eficaces y liderazgo</h3><ul class="list-disc pl-6"><li>Objetivos claros y compartidos.</li><li>Roles y responsabilidades conocidos.</li><li>Comunicación frecuente y honesta.</li><li>Confianza para preguntar y reconocer errores.</li><li>Habilidades complementarias y decisiones coordinadas.</li><li>Liderazgo que elimina obstáculos y protege el foco del equipo.</li></ul>
+ <h3>MOI / factores humanos que afectan al equipo</h3><p>En el material de la cátedra, MOI se relaciona con la motivación, organización e interacción de las personas. La idea central es que el rendimiento no depende solo de la capacidad técnica: también depende del ambiente, la comunicación, el reconocimiento y la posibilidad de trabajar sin trabas.</p>
+ <div class="callout warn"><b>Ejemplo de ambiente tóxico:</b> el jefe cambia prioridades todos los días, culpa públicamente a quien encuentra un error y exige horas extra constantes. Resultado probable: estrés, rotación, fallas y menor productividad. El antídoto es claridad, respeto, colaboración y aprendizaje sin buscar culpables.</div>
+ <h3>Ejemplos típicos de examen</h3><details><summary>¿Qué P es la más importante y por qué?</summary><p>Personal. Porque el equipo es quien interpreta el problema, toma decisiones, aplica el proceso y construye el producto. Una herramienta excelente no compensa un equipo desorganizado.</p></details>
+ <details><summary>Un cliente exige una fecha imposible. ¿Qué dimensión se afecta?</summary><p>Principalmente Proyecto: planificación, cronograma y recursos. También puede afectar Personal y calidad si se presiona al equipo de forma inadecuada.</p></details>
+ <details><summary>¿Cómo diferencio producto y proceso?</summary><p>Producto es el resultado que se entrega (la aplicación). Proceso es el conjunto de pasos usados para construirlo (requisitos, diseño, código, pruebas).</p></details>
+</section>
+
+<section id="u2" class="unit panel p-6 md:p-8">
+ <div class="unit-head"><div class="unit-num bg-indigo-100 text-indigo-800">02</div><div><span class="tag">ALCANCE Y ACTIVIDADES</span><h2>Unidad 2 · Producto, proceso y proyecto</h2></div></div>
+ <h3>Ámbito del producto: definir antes de construir</h3><p>El ámbito describe qué problema resuelve el software, quién lo usará, cuáles son sus objetivos, funciones y límites. Si el alcance queda ambiguo, cada persona puede imaginar un producto distinto.</p>
+ <p><b>Ejemplo:</b> “hacer una app médica” es demasiado general. Un alcance más claro: “permitir que pacientes busquen profesionales, consulten horarios disponibles, reserven y cancelen turnos; el sistema enviará confirmaciones”. ¿Incluye pagos online? Si no se especifica, debe aclararse como fuera de alcance o pendiente.</p>
+ <h3>Descomposición del problema</h3><p>Consiste en dividir un problema grande en partes más pequeñas que puedan analizarse, estimarse, asignarse y probarse.</p>
+ <div class="diagram"><div class="node bg-indigo-50">Sistema de turnos</div><div class="arrow">↓</div><div class="node">Usuarios</div><div class="node">Profesionales</div><div class="node">Agenda</div><div class="node">Notificaciones</div></div>
+ <p>Luego cada módulo puede dividirse aún más. Por ejemplo, Agenda: consultar disponibilidad → seleccionar horario → confirmar reserva → cancelar.</p>
+ <h3>Las 5 actividades genéricas del proceso de software</h3><div class="space-y-2">
+  <div class="p-3 rounded-xl bg-slate-50 border"><b>1. Comunicación:</b> hablar con cliente y usuarios, entender necesidades y requisitos. <i class="small">Ej.: entrevistar a recepción.</i></div>
+  <div class="p-3 rounded-xl bg-slate-50 border"><b>2. Planificación:</b> estimar esfuerzo, tareas, recursos, calendario y riesgos. <i class="small">Ej.: estimar el módulo de agenda.</i></div>
+  <div class="p-3 rounded-xl bg-slate-50 border"><b>3. Modelado:</b> analizar y diseñar la solución. <i class="small">Ej.: diagrama de casos de uso y modelo de datos.</i></div>
+  <div class="p-3 rounded-xl bg-slate-50 border"><b>4. Construcción:</b> programar y probar. <i class="small">Ej.: implementar reserva y ejecutar pruebas.</i></div>
+  <div class="p-3 rounded-xl bg-slate-50 border"><b>5. Despliegue:</b> entregar, poner en uso, recibir feedback y dar soporte inicial. <i class="small">Ej.: publicar la aplicación para la clínica.</i></div>
+ </div>
+ <h3>W5HH: siete preguntas para planificar</h3><table><tr><th>Pregunta</th><th>Qué busca</th><th>Ejemplo</th></tr><tr><td>Why?</td><td>¿Por qué se desarrolla?</td><td>Reducir ausencias y llamadas.</td></tr><tr><td>What?</td><td>¿Qué se hará?</td><td>Reservas y cancelaciones.</td></tr><tr><td>When?</td><td>¿Cuándo se hará?</td><td>Entregas por etapas.</td></tr><tr><td>Who?</td><td>¿Quién lo hará?</td><td>Equipo y responsables.</td></tr><tr><td>Where?</td><td>¿Dónde se organiza?</td><td>Ubicación y comunicación del equipo.</td></tr><tr><td>How?</td><td>¿Cómo se hará?</td><td>Proceso y tecnología.</td></tr><tr><td>How much?</td><td>¿Cuánto costará?</td><td>Esfuerzo, dinero y recursos.</td></tr></table>
+ <div class="callout good"><b>Para memorizar:</b> W5HH tiene siete preguntas: Why, What, When, Who, Where, How y How much. No confundas las cinco W con el total de preguntas: también hay dos H.</div>
+ <h3>Ejemplo aplicado completo</h3><p>Una tienda pide un sistema de stock. Comunicación: entrevistar a empleados. Planificación: calcular módulos y fechas. Modelado: diseñar productos, ventas y usuarios. Construcción: programar y probar. Despliegue: instalar y capacitar. Si además preguntamos W5HH, verificamos motivo, alcance, fechas, responsables, lugar, método y costo.</p>
+ <details><summary>¿Por qué no conviene empezar programando inmediatamente?</summary><p>Porque todavía no se conoce con precisión el problema ni el alcance. Se corre el riesgo de construir funciones equivocadas, duplicar trabajo y descubrir tarde requisitos importantes.</p></details>
+</section>
+
+<section id="u3" class="unit panel p-6 md:p-8">
+ <div class="unit-head"><div class="unit-num bg-cyan-100 text-cyan-800">03</div><div><span class="tag">MEDICIÓN Y CALIDAD</span><h2>Unidad 3 · Métricas de software</h2></div></div>
+ <h3>Medida, medición y métrica: no son sinónimos</h3><div class="grid md:grid-cols-3 gap-3">
+  <div class="bg-cyan-50 rounded-xl p-4 border border-cyan-200"><b>Medida</b><p>Valor individual obtenido. Ej.: 12 defectos.</p></div>
+  <div class="bg-blue-50 rounded-xl p-4 border border-blue-200"><b>Medición</b><p>Proceso de obtener y asignar valores. Ej.: contar defectos en una versión.</p></div>
+  <div class="bg-indigo-50 rounded-xl p-4 border border-indigo-200"><b>Métrica</b><p>Relación o indicador calculado para interpretar algo. Ej.: defectos por cada 1.000 líneas.</p></div>
+ </div>
+ <p><b>Analogía:</b> la medida es “marqué 30 minutos”; la medición es el acto de usar el cronómetro; la métrica puede ser “promedio de minutos por tarea”.</p>
+ <h3>¿Para qué medimos?</h3><ul class="list-disc pl-6"><li>Conocer el estado real del proyecto.</li><li>Detectar desvíos y problemas temprano.</li><li>Comparar resultados entre versiones o proyectos con contexto.</li><li>Tomar decisiones basadas en evidencia, no en intuición.</li><li>Mejorar procesos y calidad.</li></ul>
+ <h3>Tipos de métricas</h3><table><tr><th>Tipo</th><th>Qué observa</th><th>Ejemplo</th></tr><tr><td>Proceso</td><td>Cómo se desarrolla.</td><td>Tiempo de revisión de código.</td></tr><tr><td>Proyecto</td><td>Plan, avance y recursos.</td><td>Desviación del cronograma.</td></tr><tr><td>Producto</td><td>Características del software.</td><td>Defectos, rendimiento, facilidad de uso.</td></tr></table>
+ <h3>Actividades de medición</h3><div class="diagram"><div class="node">Formulación<br><small>definir qué medir</small></div><div class="arrow">→</div><div class="node">Recolección<br><small>obtener datos</small></div><div class="arrow">→</div><div class="node">Análisis<br><small>calcular e interpretar</small></div><div class="arrow">→</div><div class="node">Interpretación<br><small>entender significado</small></div><div class="arrow">→</div><div class="node">Feedback<br><small>decidir mejoras</small></div></div>
+ <h3>Calidad: dimensiones que conviene reconocer</h3><ul class="list-disc pl-6"><li><b>Exactitud:</b> el sistema produce resultados correctos. Ej.: calcula bien el total de una factura.</li><li><b>Mantenibilidad:</b> se puede modificar sin romper todo. Ej.: agregar una función de cancelación con cambios acotados.</li><li><b>Integridad:</b> protege datos y operaciones contra accesos o modificaciones no autorizadas.</li><li><b>Usabilidad:</b> el usuario puede aprender y utilizar el sistema con facilidad.</li></ul>
+ <h3>ERD · Eficacia de eliminación de defectos</h3><p>Indica qué proporción de los defectos conocidos se detectó antes de liberar el producto.</p><div class="formula-box">ERD = E / (E + D)<br><span class="text-slate-400 text-sm">E = defectos encontrados antes de la entrega · D = defectos encontrados después</span></div>
+ <b>Ejemplo resuelto:</b><p>Antes de entregar se detectaron 36 defectos y después de entregar se encontraron 9.</p><div class="formula-box">ERD = 36 / (36 + 9) = 36 / 45 = 0,80 = <strong>80%</strong></div><p>Interpretación: se detectó antes de la entrega el 80% del total de defectos contabilizados. Cuanto más alto, mejor capacidad de detección previa, aunque no significa que el software esté libre de errores.</p>
+ <div class="callout warn"><b>Error típico:</b> no dividir 36 por 9. El denominador es la suma de los defectos antes y después: E + D.</div>
+ <details><summary>Ejercicio rápido: 20 defectos antes y 5 después. ¿ERD?</summary><p>20 / (20 + 5) = 20/25 = 0,80 = 80%.</p></details>
+</section>
+
+<section id="u4" class="unit panel p-6 md:p-8">
+ <div class="unit-head"><div class="unit-num bg-amber-100 text-amber-800">04</div><div><span class="tag">ESTIMACIÓN</span><h2>Unidad 4 · Estimación de proyectos</h2></div></div>
+ <h3>¿Qué es estimar?</h3><p>Es anticipar cuánto esfuerzo, tiempo, costo y recursos podrían necesitarse para construir el software. Una estimación no es una promesa exacta: se basa en información disponible y tiene incertidumbre.</p>
+ <h3>Recursos del proyecto</h3><div class="grid md:grid-cols-3 gap-3">
+  <div class="p-4 bg-amber-50 border border-amber-200 rounded-xl"><b>Personal</b><p>Personas, experiencia, cantidad y disponibilidad.</p><i class="small">Ej.: dos desarrolladores y una persona de QA.</i></div>
+  <div class="p-4 bg-slate-50 border rounded-xl"><b>EIS / entorno</b><p>Hardware, software, herramientas e infraestructura.</p><i class="small">Ej.: computadoras, servidores, licencias y repositorio.</i></div>
+  <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-xl"><b>Software reutilizable</b><p>Componentes existentes que evitan desarrollar todo desde cero.</p><i class="small">Ej.: librería de autenticación ya probada.</i></div>
+ </div>
+ <h3>Reutilización: cuánto se aprovecha</h3><ul class="list-disc pl-6"><li><b>Completa:</b> se usa un componente existente sin cambios importantes.</li><li><b>Con adaptación:</b> se modifica para ajustarlo al nuevo contexto.</li><li><b>Parcial:</b> se aprovechan partes o ideas, pero hay trabajo de integración.</li><li><b>Nuevo:</b> debe desarrollarse desde cero.</li></ul>
+ <p><b>Ejemplo:</b> para una tienda online, usar una pasarela de pago existente es reutilización; adaptar un módulo de stock de otro sistema es reutilización con adaptación; crear el motor de promociones desde cero es desarrollo nuevo.</p>
+ <h3>PERT · estimación de tres puntos</h3><p>Se usa cuando hay incertidumbre y se consideran tres estimaciones: optimista, más probable y pesimista. La estimación más probable pesa cuatro veces más.</p><div class="formula-box">PERT = (O + 4M + P) / 6<br><span class="text-slate-400 text-sm">O = optimista · M = más probable · P = pesimista</span></div>
+ <b>Ejemplo paso a paso:</b><p>Una tarea podría durar 2 días si todo sale bien, normalmente 4 días y en el peor escenario razonable 8 días.</p><div class="formula-box">PERT = (2 + 4×4 + 8) / 6<br>= (2 + 16 + 8) / 6<br>= 26 / 6 = <strong>4,33 días</strong></div><p>Interpretación: la duración esperada ponderada es aproximadamente 4,33 días.</p>
+ <div class="callout"><b>Por qué el 4:</b> la estimación más probable recibe más peso porque representa el escenario que se considera más habitual.</div>
+ <h3>Puntos de Función (PF)</h3><p>Es una técnica para estimar el tamaño funcional del sistema desde lo que el usuario necesita, sin depender directamente del lenguaje de programación.</p><table><tr><th>Componente</th><th>Qué representa</th><th>Ejemplo</th></tr><tr><td>EE · Entrada externa</td><td>Datos que ingresan y actualizan/procesan información.</td><td>Registrar un paciente.</td></tr><tr><td>SE · Salida externa</td><td>Información que sale con procesamiento.</td><td>Reporte de turnos con totales.</td></tr><tr><td>CE · Consulta externa</td><td>Consulta que recupera información con respuesta simple.</td><td>Buscar turnos disponibles.</td></tr><tr><td>ALI · Archivo lógico interno</td><td>Grupo de datos mantenido por la aplicación.</td><td>Tabla de pacientes gestionada por el sistema.</td></tr><tr><td>AIE · Archivo de interfaz externa</td><td>Datos externos que la aplicación consulta, pero no mantiene.</td><td>Directorio externo de profesionales.</td></tr></table>
+ <p>Los componentes se clasifican por complejidad (simple, media, compleja) y se ponderan. <b>Importante:</b> los pesos numéricos deben tomarse de la tabla que use la cátedra; no conviene inventarlos si el enunciado no los proporciona.</p>
+ <details><summary>¿Por qué los puntos de función no dependen del lenguaje?</summary><p>Porque cuentan funcionalidades visibles para el usuario, no líneas de código. La misma función puede programarse en Java, Python o C# y seguir teniendo una complejidad funcional similar.</p></details>
+ <details><summary>PERT: O=3, M=5, P=9. Resolver.</summary><p>(3 + 4×5 + 9)/6 = (3+20+9)/6 = 32/6 = 5,33 unidades de tiempo.</p></details>
+</section>
+
+<section id="u5" class="unit panel p-6 md:p-8">
+ <div class="unit-head"><div class="unit-num bg-pink-100 text-pink-800">05</div><div><span class="tag">CRONOGRAMA Y CONTROL</span><h2>Unidad 5 · Calendario, ruta crítica y valor ganado</h2></div></div>
+ <h3>Calendario macro vs. detallado</h3><table><tr><th>Macroscópico</th><th>Detallado</th></tr><tr><td>Grandes fases e hitos.</td><td>Tareas concretas, responsables y dependencias.</td></tr><tr><td>Útil para visión general y comunicación ejecutiva.</td><td>Útil para organizar el trabajo diario y controlar.</td></tr><tr><td>Ej.: análisis en marzo, desarrollo en abril.</td><td>Ej.: diseñar login, crear tabla usuarios, implementar endpoint, probar.</td></tr></table>
+ <h3>Dependencias y ruta crítica</h3><p>Las tareas tienen relaciones: algunas no pueden empezar hasta que termine otra. La ruta crítica es la secuencia de actividades que determina la duración mínima del proyecto. Si una tarea crítica se retrasa y no tiene holgura, se retrasa la fecha final.</p>
+ <div class="diagram"><div class="node">A · Requisitos<br><b>2 días</b></div><div class="arrow">→</div><div class="node">B · Diseño<br><b>3 días</b></div><div class="arrow">→</div><div class="node">D · Integración<br><b>2 días</b></div><div class="arrow">→</div><div class="node">E · Pruebas<br><b>2 días</b></div></div>
+ <div class="diagram"><div class="node">A · Requisitos<br><b>2 días</b></div><div class="arrow">→</div><div class="node">C · Preparar entorno<br><b>1 día</b></div><div class="arrow">↗</div><div class="node">D · Integración</div></div>
+ <p>En este ejemplo, A-B-D-E dura 2+3+2+2 = 9 días; A-C-D-E dura 2+1+2+2 = 7 días. La ruta crítica es A-B-D-E (9 días). La rama C tiene 2 días de holgura en este ejemplo simplificado.</p>
+ <h3>Ley de Brooks</h3><div class="callout warn"><b>Agregar personas a un proyecto de software atrasado puede atrasarlo todavía más.</b> Los nuevos integrantes necesitan capacitación y coordinación; aumentan las comunicaciones y el trabajo de integración.</div>
+ <p>Ejemplo: si dos personas están terminando un módulo complejo, sumar cinco personas el último día no hace que el trabajo se divida mágicamente en siete partes. Las nuevas personas deben entender el código y coordinarse.</p>
+ <div class="formula-box">Canales de comunicación = N × (N − 1) / 2</div><p>Con 4 personas: 4×3/2 = 6 canales. Con 6 personas: 6×5/2 = 15 canales. Al crecer el equipo, las posibles comunicaciones crecen rápidamente.</p>
+ <h3>Valor Ganado (AVG / EVM): tres preguntas</h3><ul class="list-disc pl-6"><li>¿Cuánto trabajo habíamos planificado hacer?</li><li>¿Cuánto trabajo realmente completamos, valuado al presupuesto?</li><li>¿Cuánto dinero realmente gastamos para hacerlo?</li></ul>
+ <table><tr><th>Sigla</th><th>Significado</th><th>En palabras simples</th></tr><tr><td>PAC</td><td>Presupuesto al concluir / presupuesto total</td><td>Presupuesto total del proyecto.</td></tr><tr><td>CPTC (PV)</td><td>Costo presupuestado del trabajo programado</td><td>Valor que se esperaba completar a esta fecha.</td></tr><tr><td>CPTR (EV)</td><td>Costo presupuestado del trabajo realizado</td><td>Valor presupuestado de lo que sí se completó.</td></tr><tr><td>CRTR (AC)</td><td>Costo real del trabajo realizado</td><td>Lo que realmente costó el trabajo hecho.</td></tr></table>
+ <h3>Fórmulas de valor ganado</h3><div class="formula-box">% planificado = CPTC / PAC × 100<br>% completado = CPTR / PAC × 100<br>Variación de cronograma (VC) = CPTR − CPTC<br>Índice de rendimiento de cronograma (IRS) = CPTR / CPTC<br>Variación de costo = CPTR − CRTR<br>Índice de rendimiento de costo (IRC) = CPTR / CRTR</div>
+ <h3>Ejercicio resuelto con los datos de la guía</h3><p>PAC=582 jornadas-persona; CPTC=156,5; CPTR=126,5; CRTR=127,5.</p><table><tr><th>Cálculo</th><th>Operación</th><th>Resultado</th></tr><tr><td>% planificado</td><td>156,5 / 582 × 100</td><td>26,89%</td></tr><tr><td>% completado</td><td>126,5 / 582 × 100</td><td>21,74%</td></tr><tr><td>VC</td><td>126,5 − 156,5</td><td>−30</td></tr><tr><td>IRS</td><td>126,5 / 156,5</td><td>0,8083</td></tr><tr><td>Variación costo</td><td>126,5 − 127,5</td><td>−1</td></tr><tr><td>IRC</td><td>126,5 / 127,5</td><td>0,9922</td></tr></table>
+ <div class="callout bad"><b>Conclusión:</b> el proyecto está atrasado: completó 21,74% frente al 26,89% planificado; IRS menor que 1. También está ligeramente por encima del costo esperado para el trabajo realizado: IRC menor que 1.</div>
+ <h3>Cómo interpretar sin confundirte</h3><div class="grid md:grid-cols-2 gap-3"><div class="p-4 rounded-xl bg-emerald-50 border border-emerald-200"><b>IRS mayor que 1</b><p>Adelantado respecto del cronograma.</p><b>IRC mayor que 1</b><p>Más eficiente en costo / por debajo del costo presupuestado para el trabajo realizado.</p></div><div class="p-4 rounded-xl bg-red-50 border border-red-200"><b>IRS menor que 1</b><p>Atrasado respecto del cronograma.</p><b>IRC menor que 1</b><p>Sobre costo: se gastó más de lo presupuestado para ese trabajo.</p></div></div>
+ <div class="callout warn"><b>Regla de signos:</b> CPTR − CPTC compara avance real con avance planificado. CPTR − CRTR compara valor ganado con costo real. Un resultado negativo es desfavorable en ambos casos.</div>
+</section>
+
+<section id="u6" class="unit panel p-6 md:p-8">
+ <div class="unit-head"><div class="unit-num bg-red-100 text-red-800">06</div><div><span class="tag">INCERTIDUMBRE</span><h2>Unidad 6 · Administración de riesgos</h2></div></div>
+ <h3>¿Qué es un riesgo?</h3><p>Es un evento o condición incierta que, si ocurre, puede producir una pérdida o afectar los objetivos del proyecto. No es lo mismo que un problema actual: el riesgo podría ocurrir; el problema ya ocurrió.</p>
+ <div class="grid md:grid-cols-2 gap-3"><div class="p-4 rounded-xl bg-amber-50 border border-amber-200"><b>Riesgo</b><p>“Podría fallar el servidor durante la entrega”. Todavía no pasó.</p></div><div class="p-4 rounded-xl bg-red-50 border border-red-200"><b>Problema</b><p>“El servidor está caído ahora”. Ya está ocurriendo.</p></div></div>
+ <h3>Tipos de riesgo</h3><ul class="list-disc pl-6"><li><b>Proyecto:</b> afecta planificación, personal, recursos o calendario. Ej.: renuncia una persona clave.</li><li><b>Técnico:</b> afecta calidad o viabilidad técnica. Ej.: una tecnología no soporta la carga necesaria.</li><li><b>Negocio:</b> afecta la viabilidad comercial o estratégica. Ej.: se retira el financiamiento.</li></ul>
+ <p>También se suelen clasificar como conocidos (identificados), predecibles (se anticipan por experiencia) e impredecibles (difíciles de prever).</p>
+ <h3>Gestión reactiva y proactiva</h3><div class="diagram"><div class="node bg-red-50">Reactiva<br><small>espero a que ocurra</small></div><div class="arrow">vs.</div><div class="node bg-emerald-50">Proactiva<br><small>identifico y preparo respuestas</small></div></div>
+ <h3>Probabilidad e impacto</h3><p>La matriz de riesgos suele asignar escalas, por ejemplo de 1 a 5. Probabilidad indica qué tan posible es que ocurra; impacto indica qué tan grave sería.</p><div class="formula-box">Puntaje del riesgo = Probabilidad × Impacto<br>Exposición al riesgo (ER) = Probabilidad × Costo de la pérdida</div>
+ <b>Ejemplo de matriz:</b><table><tr><th>Riesgo</th><th>Tipo</th><th>P</th><th>I</th><th>P×I</th></tr><tr><td>Renuncia de programador clave</td><td>Proyecto</td><td>4</td><td>3</td><td>12</td></tr><tr><td>Falla de base de datos</td><td>Técnico</td><td>3</td><td>5</td><td>15</td></tr><tr><td>Pérdida de financiamiento</td><td>Negocio</td><td>4</td><td>5</td><td>20</td></tr></table>
+ <p>Con esta escala, 20 merece atención prioritaria frente a 12. Los rangos de “alto/medio/bajo” dependen del criterio definido por la cátedra o el proyecto.</p>
+ <h3>Exposición económica: ejemplo</h3><p>Si la probabilidad estimada de una falla es 0,30 y el costo de la pérdida sería $200.000:</p><div class="formula-box">ER = 0,30 × $200.000 = <strong>$60.000</strong></div><p>La exposición esperada simplificada es $60.000. No significa que necesariamente se perderá ese monto: ayuda a comparar y priorizar riesgos.</p>
+ <h3>Hoja HIR: identificar, mitigar, monitorear y responder</h3><ul class="list-disc pl-6"><li><b>Identificación:</b> describir el riesgo y su causa.</li><li><b>Mitigación:</b> acciones para reducir probabilidad o impacto antes de que ocurra.</li><li><b>Monitoreo:</b> señales o indicadores que permiten vigilarlo.</li><li><b>Contingencia:</b> qué hacer si el riesgo finalmente ocurre.</li></ul>
+ <div class="callout good"><b>Ejemplo:</b> riesgo: pérdida de datos. Mitigación: backups automáticos y pruebas de restauración. Monitoreo: alertas de backup fallido. Contingencia: restaurar la última copia válida y activar procedimiento de recuperación.</div>
+ <details><summary>¿Mitigación y contingencia son lo mismo?</summary><p>No. Mitigar es actuar antes para bajar la posibilidad o el daño. Contingencia es el plan que se ejecuta si el evento ocurre.</p></details>
+</section>
+
+<section id="u7" class="unit panel p-6 md:p-8">
+ <div class="unit-head"><div class="unit-num bg-purple-100 text-purple-800">07</div><div><span class="tag">EVOLUCIÓN DEL SOFTWARE</span><h2>Unidad 7 · Mantenimiento y reingeniería</h2></div></div>
+ <h3>El software no termina cuando se entrega</h3><p>Después de la entrega aparecen errores, cambian las necesidades, se actualizan sistemas operativos y se buscan mejoras. Por eso el mantenimiento ocupa una parte importante del ciclo de vida.</p>
+ <div class="callout"><b>Regla 70/30 (orientativa en el material):</b> gran parte del esfuerzo de un sistema puede concentrarse en mantenimiento y evolución, no solamente en el desarrollo inicial. La proporción exacta depende del sistema.</div>
+ <h3>Cuatro tipos de mantenimiento</h3><table><tr><th>Tipo</th><th>Motivo</th><th>Ejemplo claro</th></tr><tr><td>Correctivo</td><td>Corregir un defecto.</td><td>El total de la factura se calcula mal y se arregla.</td></tr><tr><td>Adaptativo</td><td>Adaptar a un entorno que cambió.</td><td>Actualizar el sistema para una nueva versión de Windows o una nueva normativa.</td></tr><tr><td>Perfectivo</td><td>Mejorar o agregar funcionalidades.</td><td>Agregar filtros y exportación a Excel porque los usuarios lo piden.</td></tr><tr><td>Preventivo</td><td>Reducir problemas futuros y facilitar mantenimiento.</td><td>Refactorizar código difícil de mantener y agregar pruebas.</td></tr></table>
+ <div class="callout warn"><b>Truco para reconocerlos:</b> corregir lo que está roto = correctivo; adaptarse a algo externo nuevo = adaptativo; agregar/mejorar funciones = perfectivo; evitar problemas futuros = preventivo.</div>
+ <h3>¿Qué es reingeniería?</h3><p>Es analizar y transformar un sistema existente para mejorar su estructura, comprensión, mantenibilidad o tecnología, procurando conservar la funcionalidad que sigue siendo necesaria. Se utiliza, por ejemplo, cuando una aplicación antigua es importante para el negocio pero resulta difícil de modificar.</p>
+ <h3>Ciclo de reingeniería en seis etapas</h3><ol class="list-decimal pl-6"><li><b>Análisis de inventario:</b> decidir qué sistemas o módulos conviene intervenir primero.</li><li><b>Reestructuración de documentos:</b> recuperar, ordenar o actualizar documentación.</li><li><b>Ingeniería inversa:</b> estudiar el sistema existente para recuperar su diseño, estructura y funcionamiento.</li><li><b>Reestructuración de código:</b> ordenar y mejorar el código sin cambiar necesariamente lo que hace.</li><li><b>Reestructuración de datos:</b> mejorar organización, calidad o estructura de los datos.</li><li><b>Ingeniería directa:</b> reconstruir o evolucionar el sistema aplicando el diseño y tecnologías mejoradas.</li></ol>
+ <div class="diagram"><div class="node">Sistema legado</div><div class="arrow">→</div><div class="node bg-purple-50">Analizar y recuperar conocimiento<br><b>Ingeniería inversa</b></div><div class="arrow">→</div><div class="node bg-emerald-50">Rediseñar y reconstruir<br><b>Ingeniería directa</b></div><div class="arrow">→</div><div class="node">Sistema mejorado</div></div>
+ <h3>Ingeniería inversa vs. ingeniería directa</h3><table><tr><th>Inversa</th><th>Directa</th></tr><tr><td>Parte del producto existente para entender cómo está construido.</td><td>Parte de especificaciones/diseño para construir o reconstruir.</td></tr><tr><td>Va del código hacia una representación de mayor abstracción.</td><td>Va del diseño hacia la implementación.</td></tr><tr><td>Ej.: analizar un programa viejo para recuperar sus reglas.</td><td>Ej.: implementar una nueva versión con arquitectura actual.</td></tr></table>
+ <h3>Refactorización</h3><p>Es mejorar la estructura interna del código sin cambiar su comportamiento observable. Por ejemplo, dividir una función de 200 líneas en funciones pequeñas, eliminar duplicación y poner nombres claros. No es agregar una nueva funcionalidad: es mejorar cómo está construido por dentro.</p>
+ <details><summary>El sistema funciona, pero es muy difícil modificarlo. ¿Qué conviene?</summary><p>Puede requerir reingeniería y refactorización. Primero se analiza y comprende el sistema; luego se mejora su estructura y, si hace falta, se reconstruye.</p></details>
+</section>
+
+<section id="u8" class="unit panel p-6 md:p-8">
+ <div class="unit-head"><div class="unit-num bg-emerald-100 text-emerald-800">08</div><div><span class="tag">CALIDAD Y MEJORA CONTINUA</span><h2>Unidad 8 · Mejoramiento del proceso (MPS)</h2></div></div>
+ <h3>Proceso y producto</h3><p>El proceso es la manera en que se trabaja; el producto es el software que se obtiene. Mejorar el proceso puede ayudar a producir software de mayor calidad, con menos defectos y entregas más previsibles. No es una garantía automática: también importan requisitos, personas, tecnología y control.</p>
+ <div class="diagram"><div class="node bg-emerald-50">Proceso definido y controlado</div><div class="arrow">→</div><div class="node bg-blue-50">Trabajo más consistente</div><div class="arrow">→</div><div class="node bg-indigo-50">Mayor posibilidad de calidad y previsibilidad</div></div>
+ <h3>CMMI: cinco niveles de madurez</h3><table><tr><th>Nivel</th><th>Nombre</th><th>Idea principal</th><th>Ejemplo</th></tr><tr><td>1</td><td>Inicial</td><td>Trabajo impredecible, depende de esfuerzos individuales.</td><td>Cada proyecto se organiza como puede.</td></tr><tr><td>2</td><td>Gestionado / Repetible</td><td>Se planifica y controla a nivel de proyecto.</td><td>Hay seguimiento de tareas y compromisos.</td></tr><tr><td>3</td><td>Definido</td><td>La organización tiene procesos documentados y compartidos.</td><td>Los equipos usan un proceso común adaptado.</td></tr><tr><td>4</td><td>Gestionado cuantitativamente</td><td>Se mide y controla con datos.</td><td>Se analizan tiempos y defectos con métricas.</td></tr><tr><td>5</td><td>Optimizado</td><td>Mejora continua e innovación del proceso.</td><td>Se detectan causas y se previenen defectos sistemáticamente.</td></tr></table>
+ <div class="callout good"><b>Escalera para memorizar:</b> 1 improvisa → 2 gestiona proyectos → 3 define procesos organizacionales → 4 controla con números → 5 optimiza y mejora continuamente.</div>
+ <h3>Patologías de inmadurez</h3><p>La guía de estudio menciona comportamientos de organizaciones inmaduras que dificultan la mejora:</p><ul class="list-disc pl-6"><li><b>Negligente:</b> ignora o no atiende la necesidad de mejorar.</li><li><b>Obstructiva:</b> pone trabas y resistencia a los cambios.</li><li><b>Despreciadora:</b> minimiza o desacredita la importancia de los procesos.</li><li><b>Socavadora:</b> debilita activamente los intentos de mejora.</li></ul>
+ <h3>RSI · Retorno sobre la inversión</h3><p>Permite comparar beneficios y costos de una mejora.</p><div class="formula-box">RSI = ((Beneficios − Costos) / Costos) × 100%</div>
+ <b>Ejemplo:</b><p>Una mejora cuesta $100.000 y produce beneficios estimados de $140.000.</p><div class="formula-box">RSI = ((140.000 − 100.000) / 100.000) × 100<br>= 40.000 / 100.000 × 100 = <strong>40%</strong></div><p>El retorno neto respecto de lo invertido es 40%. Si el resultado fuera 0%, beneficios y costos serían iguales. Si fuera negativo, los costos superarían los beneficios.</p>
+ <h3>VSM · Value Stream Mapping</h3><p>Es un mapa del flujo de valor que ayuda a visualizar pasos, tiempos de trabajo y esperas. Busca identificar desperdicios, cuellos de botella y demoras.</p><div class="formula-box">Lead Time = Tiempo de trabajo + Tiempo de espera<br>Ratio de trabajo = (Tiempo de trabajo / Lead Time) × 100<br>Ratio de desperdicio/espera = (Tiempo de espera / Lead Time) × 100</div>
+ <b>Ejemplo de la guía:</b><p>El proceso tarda 11 días trabajando efectivamente y 23 días esperando aprobaciones, disponibilidad o transferencias.</p><div class="formula-box">Lead Time = 11 + 23 = <strong>34 días</strong><br>Ratio de trabajo = 11 / 34 × 100 = <strong>32,35%</strong><br>Ratio de espera = 23 / 34 × 100 = <strong>67,65%</strong></div><p>Interpretación: solo cerca de un tercio del tiempo agrega valor mediante trabajo efectivo; el resto se consume en esperas. Una mejora podría reducir aprobaciones demoradas o automatizar transferencias.</p>
+ <div class="callout warn"><b>No confundir:</b> Lead Time es el tiempo total transcurrido. Tiempo de trabajo es solo el tiempo en que se realiza la actividad. La espera también cuenta para el Lead Time.</div>
+</section>
+
+<section id="formulas" class="panel p-6 md:p-8">
+ <span class="tag">HOJA DE FÓRMULAS</span><h2 class="mt-3">Todas las fórmulas juntas y cuándo usarlas</h2>
+ <p>Primero identificá qué te pide el ejercicio. Después anotá los datos, elegí la fórmula, reemplazá y finalmente escribí una interpretación en palabras.</p>
+ <table><tr><th>Unidad</th><th>Fórmula</th><th>Para qué sirve</th></tr>
+ <tr><td>U3 · ERD</td><td><code>E / (E + D)</code></td><td>Porcentaje de defectos detectados antes de liberar.</td></tr>
+ <tr><td>U4 · PERT</td><td><code>(O + 4M + P) / 6</code></td><td>Estimación ponderada de duración/esfuerzo.</td></tr>
+ <tr><td>U5 · Canales</td><td><code>N(N − 1) / 2</code></td><td>Canales posibles de comunicación entre N personas.</td></tr>
+ <tr><td>U5 · % planificado</td><td><code>CPTC / PAC × 100</code></td><td>Porcentaje del presupuesto planificado hasta la fecha.</td></tr>
+ <tr><td>U5 · % completado</td><td><code>CPTR / PAC × 100</code></td><td>Porcentaje del presupuesto total representado por trabajo realizado.</td></tr>
+ <tr><td>U5 · VC</td><td><code>CPTR − CPTC</code></td><td>Variación del cronograma en valor.</td></tr>
+ <tr><td>U5 · IRS</td><td><code>CPTR / CPTC</code></td><td>Índice de rendimiento del cronograma.</td></tr>
+ <tr><td>U5 · Variación costo</td><td><code>CPTR − CRTR</code></td><td>Valor ganado menos costo real.</td></tr>
+ <tr><td>U5 · IRC</td><td><code>CPTR / CRTR</code></td><td>Índice de rendimiento de costo.</td></tr>
+ <tr><td>U6 · Puntaje</td><td><code>P × I</code></td><td>Priorizar riesgo por probabilidad e impacto.</td></tr>
+ <tr><td>U6 · Exposición</td><td><code>P × costo de pérdida</code></td><td>Estimar exposición económica.</td></tr>
+ <tr><td>U8 · RSI</td><td><code>((B − C) / C) × 100</code></td><td>Retorno neto respecto del costo.</td></tr>
+ <tr><td>U8 · Lead Time</td><td><code>Trabajo + Espera</code></td><td>Tiempo total del flujo.</td></tr>
+ <tr><td>U8 · Ratio trabajo</td><td><code>Trabajo / Lead Time × 100</code></td><td>Porcentaje de tiempo efectivo.</td></tr>
+ <tr><td>U8 · Ratio espera</td><td><code>Espera / Lead Time × 100</code></td><td>Porcentaje de tiempo desperdiciado en espera.</td></tr></table>
+ <h3>Calculadoras rápidas</h3>
+ <div class="grid md:grid-cols-2 gap-5">
+  <div class="rounded-xl border p-4"><h3 class="!mt-0">PERT</h3><div class="grid grid-cols-3 gap-2"><label class="text-sm">Optimista<input id="po" type="number" value="2" class="w-full border rounded-lg p-2 mt-1"></label><label class="text-sm">Más probable<input id="pm" type="number" value="4" class="w-full border rounded-lg p-2 mt-1"></label><label class="text-sm">Pesimista<input id="pp" type="number" value="8" class="w-full border rounded-lg p-2 mt-1"></label></div><button onclick="calcPert()" class="mt-3 bg-blue-700 text-white rounded-lg px-4 py-2 font-bold">Calcular</button><p id="pertout" class="font-bold text-blue-800"></p></div>
+  <div class="rounded-xl border p-4"><h3 class="!mt-0">ERD</h3><div class="grid grid-cols-2 gap-2"><label class="text-sm">Antes (E)<input id="ee" type="number" value="36" class="w-full border rounded-lg p-2 mt-1"></label><label class="text-sm">Después (D)<input id="ed" type="number" value="9" class="w-full border rounded-lg p-2 mt-1"></label></div><button onclick="calcErd()" class="mt-3 bg-cyan-700 text-white rounded-lg px-4 py-2 font-bold">Calcular</button><p id="erdout" class="font-bold text-cyan-800"></p></div>
+  <div class="rounded-xl border p-4"><h3 class="!mt-0">Valor ganado</h3><div class="grid grid-cols-2 gap-2"><label class="text-sm">CPTC<input id="vcptc" type="number" value="156.5" class="w-full border rounded-lg p-2 mt-1"></label><label class="text-sm">CPTR<input id="vcp" type="number" value="126.5" class="w-full border rounded-lg p-2 mt-1"></label><label class="text-sm">CRTR<input id="vcr" type="number" value="127.5" class="w-full border rounded-lg p-2 mt-1"></label><label class="text-sm">PAC<input id="vpac" type="number" value="582" class="w-full border rounded-lg p-2 mt-1"></label></div><button onclick="calcEv()" class="mt-3 bg-pink-700 text-white rounded-lg px-4 py-2 font-bold">Calcular</button><p id="evout" class="text-sm font-semibold text-pink-900 whitespace-pre-line"></p></div>
+  <div class="rounded-xl border p-4"><h3 class="!mt-0">RSI</h3><div class="grid grid-cols-2 gap-2"><label class="text-sm">Beneficios<input id="rb" type="number" value="140000" class="w-full border rounded-lg p-2 mt-1"></label><label class="text-sm">Costos<input id="rc" type="number" value="100000" class="w-full border rounded-lg p-2 mt-1"></label></div><button onclick="calcRsi()" class="mt-3 bg-emerald-700 text-white rounded-lg px-4 py-2 font-bold">Calcular</button><p id="rsiout" class="font-bold text-emerald-800"></p></div>
+ </div>
+ <p class="small mt-3">Las calculadoras son una ayuda para comprobar operaciones. En el examen tenés que mostrar el procedimiento y explicar qué significa el resultado.</p>
+</section>
+
+<section id="practica" class="panel p-6 md:p-8">
+ <span class="tag">MÉTODO DE RESOLUCIÓN</span><h2 class="mt-3">Cómo encarar los ejercicios prácticos</h2>
+ <h3>1. Ejercicios de cálculo</h3><ol class="list-decimal pl-6"><li>Leé qué indicador te piden.</li><li>Separá los datos y sus unidades.</li><li>Escribí la fórmula antes de reemplazar.</li><li>Reemplazá los valores con cuidado con paréntesis y signos.</li><li>Calculá y expresá porcentaje, días, dinero o índice.</li><li>Interpretá: ¿es favorable o desfavorable? ¿Qué significa para el proyecto?</li></ol>
+ <h3>2. Ejercicios de clasificación</h3><p>Buscá la intención del caso. Si corrige un error es correctivo; si responde a un cambio externo es adaptativo; si agrega valor es perfectivo; si evita problemas futuros es preventivo. Para riesgos, identificá si afecta proyecto, técnica o negocio.</p>
+ <h3>3. Casos de uso: estructura mínima</h3><table><tr><th>Parte</th><th>Qué escribir</th><th>Ejemplo: reservar turno</th></tr><tr><td>Nombre</td><td>Acción del usuario.</td><td>Reservar turno.</td></tr><tr><td>Actor principal</td><td>Quién inicia.</td><td>Paciente.</td></tr><tr><td>Precondición</td><td>Qué debe cumplirse antes.</td><td>Paciente registrado.</td></tr><tr><td>Flujo principal</td><td>Pasos normales.</td><td>Busca médico, elige horario, confirma.</td></tr><tr><td>Alternativo</td><td>Qué pasa si algo cambia o falla.</td><td>El horario ya no está disponible.</td></tr><tr><td>Postcondición</td><td>Estado final.</td><td>Turno guardado y confirmado.</td></tr></table>
+ <h3>4. Ejercicio de riesgo completo</h3><p><b>Situación:</b> el único administrador de base de datos podría dejar el proyecto a mitad de camino. P=3, I=4, pérdida estimada $300.000.</p><ul class="list-disc pl-6"><li>Tipo: riesgo de proyecto (dependencia de una persona clave).</li><li>Puntaje: 3×4=12.</li><li>Exposición económica simplificada: 0,30×$300.000=$90.000 (si P=3 representa 30%).</li><li>Mitigación: documentar procedimientos y capacitar a otra persona.</li><li>Monitoreo: revisar disponibilidad y avance de documentación.</li><li>Contingencia: reasignar un reemplazo y activar transferencia de conocimiento.</li></ul>
+ <div class="callout warn"><b>Atención con la escala:</b> si P se expresa como número de 1 a 5, para calcular exposición económica en porcentaje hay que convertirlo según la escala indicada por el ejercicio. No multipliques directamente 3×$300.000 salvo que el enunciado defina P=3 como probabilidad 3 (o 300%), cosa que no tendría sentido. En el ejemplo se interpreta P=30% solo a modo ilustrativo.</div>
+ <h3>Prácticas que aparecen en tu material</h3><p>En el repositorio hay actividades y resoluciones asociadas a la Unidad I, Unidad V, ejercicios de riesgos y casos de uso. Usá esta sección como método para resolverlas y contrastá los datos específicos con el enunciado original: no todos los trabajos prácticos tienen necesariamente el mismo formato.</p>
+</section>
+
+<section id="quiz" class="panel p-6 md:p-8">
+ <span class="tag">COMPROBÁ SI ENTENDISTE</span><h2 class="mt-3">Autoevaluación de las ocho unidades</h2><p>Elegí una respuesta. Al finalizar vas a ver tu puntaje y qué temas conviene repasar.</p>
+ <div id="quizbox" class="space-y-4"></div>
+ <div class="flex gap-3 flex-wrap mt-5"><button onclick="gradeQuiz()" class="bg-blue-700 text-white px-5 py-3 rounded-xl font-bold">Corregir respuestas</button><button onclick="resetQuiz()" class="border px-5 py-3 rounded-xl font-bold">Reiniciar</button></div><p id="quizresult" class="font-extrabold text-lg mt-4"></p>
+</section>
+
+<section class="panel p-6 md:p-8">
+ <h2>Repaso final: lo que deberías poder explicar sin mirar</h2>
+ <ul class="list-disc pl-6">
+  <li>Las cuatro P y por qué Personal es la más importante.</li><li>Las cinco actividades genéricas y las siete preguntas W5HH.</li><li>La diferencia entre medida, medición y métrica; y cómo se calcula ERD.</li>
+  <li>Los recursos de estimación, PERT y los cinco componentes de puntos de función.</li><li>Calendario macro/detallado, ruta crítica, Brooks y todos los indicadores de valor ganado.</li>
+  <li>Qué es un riesgo, sus categorías, matriz, exposición, mitigación y contingencia.</li><li>Los cuatro mantenimientos y las seis etapas de reingeniería.</li><li>Los cinco niveles CMMI, RSI y VSM.</li>
+ </ul>
+ <div class="callout good"><b>Consejo para rendir:</b> no te quedes solo con la definición. Para cada concepto prepará un ejemplo propio. Si podés explicar qué es, para qué sirve, cuándo se aplica y dar un ejemplo, probablemente lo entendiste.</div>
+ <p class="small">Material complementario elaborado a partir de la guía y las páginas del repositorio. Ante diferencias de terminología, escalas o tablas numéricas, priorizá el material y los criterios indicados por tu cátedra.</p>
+ <a href="index.html" class="inline-flex mt-4 font-bold text-blue-700 hover:underline"><i class="fa-solid fa-arrow-left mr-2 mt-1"></i>Volver a la página principal</a>
+</section>
+<footer class="text-center text-slate-500 text-sm py-6">Gestión de Desarrollo de Software · Resumen complementario de estudio</footer>
+</main>
+<script>
+function val(id){return Number(document.getElementById(id).value)}
+function fmt(n){return Number(n).toLocaleString('es-AR',{maximumFractionDigits:4})}
+function calcPert(){let o=val('po'),m=val('pm'),p=val('pp');document.getElementById('pertout').textContent=[o,m,p].every(Number.isFinite)?'PERT = '+fmt((o+4*m+p)/6):'Revisá los datos.'}
+function calcErd(){let e=val('ee'),d=val('ed');document.getElementById('erdout').textContent=e>=0&&d>=0&&(e+d)>0?'ERD = '+fmt(e/(e+d)*100)+'%':'Ingresá valores válidos y un total mayor que cero.'}
+function calcEv(){let pv=val('vcptc'),ev=val('vcp'),ac=val('vcr'),bac=val('vpac');if(pv<=0||ac<=0||bac<=0){document.getElementById('evout').textContent='CPTC, CRTR y PAC deben ser mayores que cero.';return}let sv=ev-pv,spi=ev/pv,cv=ev-ac,cpi=ev/ac;document.getElementById('evout').textContent=`% planificado: ${fmt(pv/bac*100)}%\n% completado: ${fmt(ev/bac*100)}%\nVC: ${fmt(sv)} (${spi<1?'atrasado':spi>1?'adelantado':'según plan'}) · IRS: ${fmt(spi)}\nVariación costo: ${fmt(cv)} (${cpi<1?'sobre costo':cpi>1?'bajo presupuesto':'según presupuesto'}) · IRC: ${fmt(cpi)}`}
+function calcRsi(){let b=val('rb'),c=val('rc');document.getElementById('rsiout').textContent=c>0?'RSI = '+fmt((b-c)/c*100)+'%':'El costo debe ser mayor que cero.'}
+const questions=[
+['¿Cuál de las 4 P se considera la más importante?',['Producto','Personal','Proceso','Proyecto'],1,'U1: Personal es la P más importante.'],
+['¿Cuál es la diferencia entre producto y proceso?',['Son lo mismo','Producto es el equipo; proceso es el cliente','Producto es lo construido; proceso es cómo se construye','Proceso es el presupuesto'],2,'U2: producto = resultado; proceso = actividades.'],
+['Una métrica es…',['Un valor individual solamente','Un indicador que relaciona o interpreta medidas','Una reunión del equipo','Un tipo de riesgo'],1,'U3: una métrica permite interpretar el comportamiento mediante medidas.'],
+['En PERT, ¿qué estimación pesa cuatro veces?',['Optimista','Pesimista','Más probable','Todas igual'],2,'U4: PERT=(O+4M+P)/6.'],
+['Si IRS = 0,80, el proyecto está…',['Adelantado','Atrasado','Sin costo','Terminado'],1,'U5: un IRS menor que 1 indica atraso.'],
+['¿Qué es mitigación?',['El plan después de que ocurre el riesgo','Acciones previas para reducir probabilidad o impacto','El costo total','Una métrica de calidad'],1,'U6: mitigación es preventiva; contingencia se ejecuta si ocurre.'],
+['Adaptar el software a una nueva versión del sistema operativo es mantenimiento…',['Correctivo','Perfectivo','Adaptativo','Preventivo'],2,'U7: adaptativo responde a cambios del entorno.'],
+['¿Qué representa CMMI nivel 5?',['Improvisación','Procesos repetibles por proyecto','Procesos documentados','Optimización y mejora continua'],3,'U8: nivel 5 es optimizado.'],
+['Un código se reorganiza para facilitar futuras modificaciones sin cambiar lo que hace. Es…',['Refactorización','Despliegue','Mitigación','Estimación'],0,'U7: refactorizar cambia estructura interna, no comportamiento observable.'],
+['En VSM, Lead Time incluye…',['Solo el tiempo de trabajo','Solo la espera','Trabajo y espera','Solo pruebas'],2,'U8: Lead Time = trabajo + espera.']
+];
+function renderQuiz(){let box=document.getElementById('quizbox');box.innerHTML='';questions.forEach((q,i)=>{let d=document.createElement('div');d.className='border rounded-xl p-4';d.innerHTML=`<b>${i+1}. ${q[0]}</b>`;q[1].forEach((op,j)=>{let b=document.createElement('button');b.className='quiz-option';b.textContent=String.fromCharCode(65+j)+') '+op;b.dataset.q=i;b.dataset.a=j;b.onclick=()=>{d.querySelectorAll('button').forEach(x=>x.classList.remove('ring-2','ring-blue-500'));b.classList.add('ring-2','ring-blue-500');d.dataset.answer=j};d.appendChild(b)});let hint=document.createElement('p');hint.className='hidden text-sm mt-2';hint.id='hint'+i;d.appendChild(hint);box.appendChild(d)})}
+function gradeQuiz(){let score=0;questions.forEach((q,i)=>{let d=document.getElementById('quizbox').children[i],a=Number(d.dataset.answer);d.querySelectorAll('button').forEach((b,j)=>{b.classList.remove('correct','wrong');if(j===q[2])b.classList.add('correct');if(j===a&&a!==q[2])b.classList.add('wrong')});let h=document.getElementById('hint'+i);h.textContent=q[3];h.classList.remove('hidden');if(a===q[2])score++});document.getElementById('quizresult').textContent=`Resultado: ${score}/${questions.length}. `+(score>=8?'¡Muy bien! Repasá los detalles que fallaste.':score>=5?'Vas encaminado: repasá las explicaciones de las respuestas incorrectas.':'Volvé al mapa y estudiá unidad por unidad antes de repetir el cuestionario.')}
+function resetQuiz(){renderQuiz();document.getElementById('quizresult').textContent=''}
+renderQuiz();calcPert();calcErd();calcEv();calcRsi();
+</script>
+</body></html>
