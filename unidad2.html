@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unidad 2: El Producto, El Proceso y El Proyecto | Guía de Estudio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+  <!-- Mermaid for diagrams -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+  <link rel="stylesheet" href="mobile.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .glass-card { background: rgba(255, 255, 255, 0.98); border: 1px solid #e2e8f0; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <!-- Header & Nav Bar -->
+  <header class="bg-indigo-900 text-white sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 text-lg font-bold hover:text-indigo-200 transition">
+        <i class="fa-solid fa-arrow-left text-sm"></i>
+        <span>Volver al Inicio</span>
+      </a>
+      <div class="flex items-center gap-1 sm:gap-2 text-xs font-semibold overflow-x-auto no-scrollbar smooth-scroll-x py-1">
+        <a href="unidad1.html" class="px-2.5 py-1.5 rounded-lg hover:bg-indigo-800 text-indigo-200 transition">U1</a>
+        <a href="unidad2.html" class="px-2.5 py-1.5 rounded-lg bg-indigo-700 text-white font-bold">U2</a>
+        <a href="unidad3.html" class="px-2.5 py-1.5 rounded-lg hover:bg-indigo-800 text-indigo-200 transition">U3</a>
+        <a href="unidad4.html" class="px-2.5 py-1.5 rounded-lg hover:bg-indigo-800 text-indigo-200 transition">U4</a>
+        <a href="unidad5.html" class="px-2.5 py-1.5 rounded-lg hover:bg-indigo-800 text-indigo-200 transition">U5</a>
+        <a href="unidad6.html" class="px-2.5 py-1.5 rounded-lg hover:bg-indigo-800 text-indigo-200 transition">U6</a>
+        <a href="unidad7.html" class="px-2.5 py-1.5 rounded-lg hover:bg-indigo-800 text-indigo-200 transition">U7</a>
+        <a href="unidad8.html" class="px-2.5 py-1.5 rounded-lg hover:bg-indigo-800 text-indigo-200 transition">U8</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Title Banner -->
+  <div class="bg-gradient-to-r from-indigo-900 via-indigo-800 to-blue-900 text-white py-10 px-4 shadow-inner">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex items-center gap-2 mb-2 text-xs uppercase tracking-wider font-bold text-indigo-200">
+        <span>Unidad Temática 2</span> &bull; <span>Pressman Cap. 24 & 25</span>
+      </div>
+      <h1 class="text-3xl md:text-5xl font-black">El Producto, El Proceso y El Proyecto</h1>
+      <p class="text-indigo-100 text-base md:text-lg mt-3 font-light max-w-3xl">
+        Cómo definir el ámbito en la incertidumbre inicial, la Matriz de Fusión Producto-Proceso, los 5 enfoques de sentido común y el Principio W5-HH de Barry Boehm.
+      </p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto px-4 py-10 flex-1 w-full space-y-12">
+
+    <!-- 1. EL DILEMA DEL ARRANQUE Y EL ÁMBITO DEL PRODUCTO -->
+    <section class="glass-card rounded-2xl p-6 md:p-8 shadow-sm">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-xl">
+          <i class="fa-solid fa-compass-drafting"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-slate-800">1. El Dilema Inicial: ¿Cómo estimar sin información sólida?</h2>
+          <span class="text-xs text-slate-500 font-medium">Acotar el ámbito (Scope) como única salida profesional</span>
+        </div>
+      </div>
+
+      <p class="text-sm text-slate-700 leading-relaxed">
+        Al inicio de un proyecto, la gerencia o el cliente solicitan estimaciones rigurosas de costo y fecha de entrega precisa. Sin embargo, no existe aún una especificación técnica completa. Ante esta paradoja, la respuesta de ingeniería consiste en **examinar el producto y acotar su ámbito** a través de tres dimensiones fundamentales:
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 text-xs">
+        <div class="p-4 bg-slate-100 rounded-xl border border-slate-200">
+          <span class="font-bold text-indigo-900 block text-sm mb-1">1. Contexto</span>
+          <p class="text-slate-600">¿Cómo encaja el software en un sistema empresarial mayor? ¿Qué restricciones técnicas, legales o de infraestructura impone el entorno existente?</p>
+        </div>
+        <div class="p-4 bg-slate-100 rounded-xl border border-slate-200">
+          <span class="font-bold text-indigo-900 block text-sm mb-1">2. Objetivos de Información</span>
+          <p class="text-slate-600">¿Qué objetos de datos visibles para el cliente se producen como salida del software? ¿Qué datos exactos se requieren como entrada?</p>
+        </div>
+        <div class="p-4 bg-slate-100 rounded-xl border border-slate-200">
+          <span class="font-bold text-indigo-900 block text-sm mb-1">3. Función y Desempeño</span>
+          <p class="text-slate-600">¿Qué operaciones y transformaciones algorítmicas realiza el software sobre los datos? ¿Qué tiempos de respuesta o volumen de usuarios se exigen?</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. DESCOMPOSICIÓN DEL PROBLEMA -->
+    <section class="glass-card rounded-2xl p-6 md:p-8 shadow-sm">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xl">
+          <i class="fa-solid fa-network-wired"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-slate-800">2. Descomposición del Problema</h2>
+          <span class="text-xs text-slate-500 font-medium">Dividir la complejidad en dos ejes manejables</span>
+        </div>
+      </div>
+
+      <p class="text-sm text-slate-700 leading-relaxed mb-6">
+        Un sistema completo resulta inabarcable al inicio si se intenta analizar de forma monolítica. Por ello, la descomposición inicial se enfoca en dos aspectos principales:
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
+        <div class="p-4 bg-blue-50/70 border border-blue-200 rounded-xl">
+          <h3 class="font-bold text-blue-900 text-sm mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-code text-blue-600"></i> Funcionalidad y Contenido (QUÉ)
+          </h3>
+          <p class="text-slate-700 leading-relaxed">
+            Se descompone el software en funciones principales independientes (ej: Autenticación, Catálogo de productos, Pasarela de pagos, Generador de reportes). Permite estimar tamaño y complejidad funcional.
+          </p>
+        </div>
+        <div class="p-4 bg-emerald-50/70 border border-emerald-200 rounded-xl">
+          <h3 class="font-bold text-emerald-900 text-sm mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-gears text-emerald-600"></i> Proceso para Entregarlo (CÓMO)
+          </h3>
+          <p class="text-slate-700 leading-relaxed">
+            Cómo se organizará el trabajo de ingeniería a lo largo del ciclo de vida para construir cada una de esas funciones paso a paso (Comunicación, Planificación, Modelado, Construcción, Despliegue).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. MATRIZ DE FUSIÓN PRODUCTO-PROCESO -->
+    <section class="glass-card rounded-2xl p-6 md:p-8 shadow-sm">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-xl">
+          <i class="fa-solid fa-table-cells"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-slate-800">3. Matriz de Fusión Producto-Proceso</h2>
+          <span class="text-xs text-slate-500 font-medium">La herramienta operativa para planificar recursos y tareas</span>
+        </div>
+      </div>
+
+      <p class="text-sm text-slate-700 leading-relaxed mb-4">
+        Cada función identificada en la descomposición debe atravesar las actividades comunes del marco conceptual. El gerente utiliza una **matriz bidimensional** para estimar el esfuerzo, los recursos y los productos operativos en cada intersección:
+      </p>
+
+      <div class="overflow-x-auto border border-slate-200 rounded-xl">
+        <table class="w-full text-xs text-left">
+          <thead class="bg-indigo-50 text-indigo-900 uppercase font-bold text-[11px] border-b border-indigo-200">
+            <tr>
+              <th class="p-3">Funciones del Producto \ Marco</th>
+              <th class="p-3 text-center">1. Comunicación</th>
+              <th class="p-3 text-center">2. Planificación</th>
+              <th class="p-3 text-center">3. Modelado (Diseño)</th>
+              <th class="p-3 text-center">4. Construcción (Código/Test)</th>
+              <th class="p-3 text-center">5. Despliegue</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200 text-slate-700">
+            <tr>
+              <td class="p-3 font-semibold bg-slate-50">Entrada de Texto y Comandos</td>
+              <td class="p-3 text-center text-slate-500">Entrevista cliente</td>
+              <td class="p-3 text-center text-slate-500">Estimación días</td>
+              <td class="p-3 text-center text-slate-500">Diseño UI / UX</td>
+              <td class="p-3 text-center text-indigo-700 font-bold">Código + Tests</td>
+              <td class="p-3 text-center text-slate-500">Prueba Beta</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold bg-slate-50">Gestión de Base de Datos</td>
+              <td class="p-3 text-center text-slate-500">Requerimientos datos</td>
+              <td class="p-3 text-center text-slate-500">Capacidad servidor</td>
+              <td class="p-3 text-center text-slate-500">Modelo Entidad-Relación</td>
+              <td class="p-3 text-center text-indigo-700 font-bold">Scripts SQL + DAOs</td>
+              <td class="p-3 text-center text-slate-500">Migración inicial</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold bg-slate-50">Generación de Reportes</td>
+              <td class="p-3 text-center text-slate-500">Formatos deseados</td>
+              <td class="p-3 text-center text-slate-500">Esfuerzo en horas</td>
+              <td class="p-3 text-center text-slate-500">Plantillas PDF</td>
+              <td class="p-3 text-center text-indigo-700 font-bold">Lógica de exportación</td>
+              <td class="p-3 text-center text-slate-500">Capacitación usuario</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-4 p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-900">
+        <i class="fa-solid fa-quote-left text-amber-500 mr-1"></i>
+        <em>"No tenemos tiempo para detenernos por combustible, ya vamos retrasados."</em> — Metáfora citada en las clases que describe la trampa de omitir las fases de planificación y diseño por apresurarse a codificar.
+      </div>
+    </section>
+
+    <!-- 4. EL PRINCIPIO W5-HH (BARRY BOEHM) -->
+    <section class="glass-card rounded-2xl p-6 md:p-8 shadow-sm">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-xl">
+          <i class="fa-solid fa-question"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-slate-800">4. El Principio W5-HH (Barry Boehm)</h2>
+          <span class="text-xs text-slate-500 font-medium">Siete preguntas esenciales que estructuran cualquier proyecto de software</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-xs">
+        <div class="p-3.5 bg-slate-100 rounded-xl border border-slate-200">
+          <strong class="text-indigo-900 block font-bold text-sm">1. Why (¿Por qué?)</strong>
+          <span class="text-slate-600">¿Por qué se desarrollará el sistema? Justificación de negocio y valor que aportará.</span>
+        </div>
+        <div class="p-3.5 bg-slate-100 rounded-xl border border-slate-200">
+          <strong class="text-indigo-900 block font-bold text-sm">2. What (¿Qué?)</strong>
+          <span class="text-slate-600">¿Qué se hará exactamente? Las funciones operativas y el alcance pactado.</span>
+        </div>
+        <div class="p-3.5 bg-slate-100 rounded-xl border border-slate-200">
+          <strong class="text-indigo-900 block font-bold text-sm">3. When (¿Cuándo?)</strong>
+          <span class="text-slate-600">¿Cuándo se hará? El cronograma con fechas de inicio, hitos y entrega final.</span>
+        </div>
+        <div class="p-3.5 bg-slate-100 rounded-xl border border-slate-200">
+          <strong class="text-indigo-900 block font-bold text-sm">4. Who (¿Quién?)</strong>
+          <span class="text-slate-600">¿Quién es responsable de cada función? Asignación técnica de roles y personas.</span>
+        </div>
+        <div class="p-3.5 bg-slate-100 rounded-xl border border-slate-200">
+          <strong class="text-indigo-900 block font-bold text-sm">5. Where (¿Dónde?)</strong>
+          <span class="text-slate-600">¿Dónde se ubicarán en la organización? Servidores, repositorios y áreas involucradas.</span>
+        </div>
+        <div class="p-3.5 bg-slate-100 rounded-xl border border-slate-200">
+          <strong class="text-indigo-900 block font-bold text-sm">6. How (¿Cómo?)</strong>
+          <span class="text-slate-600">¿Cómo se hará el trabajo? Enfoque metodológico, tecnologías y arquitectura.</span>
+        </div>
+        <div class="p-3.5 bg-indigo-50 border border-indigo-200 rounded-xl sm:col-span-2 md:col-span-3">
+          <strong class="text-indigo-900 block font-bold text-sm">7. How Much (¿Cuánto?)</strong>
+          <span class="text-indigo-950">¿Cuánto se necesita de cada recurso? Presupuesto financiero, horas de esfuerzo y personal.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. LOS 5 ENFOQUES DE SENTIDO COMÚN -->
+    <section class="glass-card rounded-2xl p-6 md:p-8 shadow-sm">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xl">
+          <i class="fa-solid fa-lightbulb"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-slate-800">5. Los Cinco Enfoques de Sentido Común</h2>
+          <span class="text-xs text-slate-500 font-medium">Recomendaciones pragmáticas de Pressman para gerentes de proyecto</span>
+        </div>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <div class="p-3.5 bg-slate-100 rounded-xl flex items-start gap-3">
+          <span class="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold shrink-0">1</span>
+          <div>
+            <strong class="text-slate-900 font-bold block">Comenzar con el pie derecho:</strong>
+            <span class="text-slate-600">Trabajar duro para comprender el problema real, acordar expectativas alcanzables y dotar al equipo de autonomía y herramientas.</span>
+          </div>
+        </div>
+        <div class="p-3.5 bg-slate-100 rounded-xl flex items-start gap-3">
+          <span class="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold shrink-0">2</span>
+          <div>
+            <strong class="text-slate-900 font-bold block">Mantener la cantidad de movimiento (Momentum):</strong>
+            <span class="text-slate-600">Minimizar la rotación con incentivos, enfatizar la calidad técnica en cada tarea y <em>mantener al gerente ejecutivo lo más lejos posible del trabajo cotidiano del equipo</em>.</span>
+          </div>
+        </div>
+        <div class="p-3.5 bg-slate-100 rounded-xl flex items-start gap-3">
+          <span class="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold shrink-0">3</span>
+          <div>
+            <strong class="text-slate-900 font-bold block">Seguir la pista al progreso:</strong>
+            <span class="text-slate-600">Monitorear con métricas objetivas (ej. Análisis de Valor Ganado) en lugar de apoyarse en estimaciones de avance subjetivas.</span>
+          </div>
+        </div>
+        <div class="p-3.5 bg-slate-100 rounded-xl flex items-start gap-3">
+          <span class="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold shrink-0">4</span>
+          <div>
+            <strong class="text-slate-900 font-bold block">Tomar decisiones inteligentes:</strong>
+            <span class="text-slate-600">Simplificar siempre que sea posible, utilizar componentes estándar y asignar mayor margen de tiempo a tareas riesgosas o complejas.</span>
+          </div>
+        </div>
+        <div class="p-3.5 bg-slate-100 rounded-xl flex items-start gap-3">
+          <span class="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold shrink-0">5</span>
+          <div>
+            <strong class="text-slate-900 font-bold block">Realizar análisis Post-Mortem:</strong>
+            <span class="text-slate-600">Recopilar retrospectivas al finalizar el proyecto y documentar las lecciones aprendidas para no repetir errores en el futuro.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation Footer -->
+    <div class="flex items-center justify-between pt-6 border-t border-slate-200 text-sm font-semibold">
+      <a href="unidad1.html" class="px-4 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-700 transition">
+        &larr; Unidad 1
+      </a>
+      <a href="unidad3.html" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white shadow transition">
+        Siguiente: Unidad 3 (Métricas) &rarr;
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs">
+    Tecnicatura Universitaria en Programación &bull; Gestión de Desarrollo de Software
+  </footer>
+</body>
+</html>

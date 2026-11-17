@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unidad 5: Calendario del Proyecto y Valor Ganado | Guía de Estudio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+  <!-- Mermaid for diagrams -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+  <link rel="stylesheet" href="mobile.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .glass-card { background: rgba(255, 255, 255, 0.98); border: 1px solid #e2e8f0; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <!-- Header & Nav Bar -->
+  <header class="bg-pink-950 text-white sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 text-lg font-bold hover:text-pink-200 transition">
+        <i class="fa-solid fa-arrow-left text-sm"></i>
+        <span>Volver al Inicio</span>
+      </a>
+      <div class="flex items-center gap-1 sm:gap-2 text-xs font-semibold overflow-x-auto no-scrollbar smooth-scroll-x py-1">
+        <a href="unidad1.html" class="px-2.5 py-1.5 rounded-lg hover:bg-pink-900 text-pink-200 transition">U1</a>
+        <a href="unidad2.html" class="px-2.5 py-1.5 rounded-lg hover:bg-pink-900 text-pink-200 transition">U2</a>
+        <a href="unidad3.html" class="px-2.5 py-1.5 rounded-lg hover:bg-pink-900 text-pink-200 transition">U3</a>
+        <a href="unidad4.html" class="px-2.5 py-1.5 rounded-lg hover:bg-pink-900 text-pink-200 transition">U4</a>
+        <a href="unidad5.html" class="px-2.5 py-1.5 rounded-lg bg-pink-700 text-white font-bold">U5</a>
+        <a href="unidad6.html" class="px-2.5 py-1.5 rounded-lg hover:bg-pink-900 text-pink-200 transition">U6</a>
+        <a href="unidad7.html" class="px-2.5 py-1.5 rounded-lg hover:bg-pink-900 text-pink-200 transition">U7</a>
+        <a href="unidad8.html" class="px-2.5 py-1.5 rounded-lg hover:bg-pink-900 text-pink-200 transition">U8</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Title Banner -->
+  <div class="bg-gradient-to-r from-pink-950 via-pink-900 to-rose-900 text-white py-10 px-4 shadow-inner">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex items-center gap-2 mb-2 text-xs uppercase tracking-wider font-bold text-pink-300">
+        <span>Unidad Temática 5</span> &bull; <span>Pressman Cap. 27</span>
+      </div>
+      <h1 class="text-3xl md:text-5xl font-black">Calendario del Proyecto y Valor Ganado</h1>
+      <p class="text-pink-100 text-base md:text-lg mt-3 font-light max-w-3xl">
+        Gestión del cronograma, red de actividades, Ruta Crítica, Ley de Brooks y el Análisis de Valor Ganado (AVG / EVM) con resolución completa de ejercicios.
+      </p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto px-4 py-10 flex-1 w-full space-y-12">
+
+    <!-- 1. IMPORTANCIA DEL CALENDARIO Y RED DE TAREAS -->
+    <section class="glass-card rounded-2xl p-6 md:p-8 shadow-sm">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-xl bg-pink-100 text-pink-800 flex items-center justify-center font-bold text-xl">
+          <i class="fa-regular fa-calendar-days"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-slate-800">1. ¿Por qué es Indispensable un Calendario?</h2>
+          <span class="text-xs text-slate-500 font-medium">Coordinación de paralelismo e interdependencias</span>
+        </div>
+      </div>
+
+      <p class="text-sm text-slate-700 leading-relaxed mb-6">
+        En proyectos de software, múltiples tareas de ingeniería ocurren de forma simultánea. El resultado de una tarea (ej. la definición de la interfaz) condiciona directamente el inicio de otra (ej. el desarrollo del backend). Sin un calendario detallado, es **virtualmente imposible comprender las dependencias, coordinar las entregas y valorar el avance real**.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
+        <div class="p-4 bg-slate-100 rounded-xl border border-slate-200">
+          <strong class="text-slate-900 block text-sm font-bold mb-2">Calendario Macroscópico (Global):</strong>
+          <p class="text-slate-600 leading-relaxed">
+            Muestra las grandes fases, incrementos e hitos globales en una línea de tiempo (semanas/meses). Es útil para informar a la alta gerencia y clientes ejecutivos, pero <em>insuficiente para dirigir al equipo técnico día a día</em>.
+          </p>
+        </div>
+        <div class="p-4 bg-pink-50 border border-pink-200 rounded-xl">
+          <strong class="text-pink-950 block text-sm font-bold mb-2">Calendario Detallado:</strong>
+          <p class="text-slate-700 leading-relaxed">
+            Descompone cada acción en tareas específicas de ingeniería. Cada tarea define: <strong>Fecha de inicio estimada, fecha de fin, responsable, tareas predecesoras (dependencias) y tarea siguiente</strong>.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-4 p-3 bg-rose-50 border border-rose-200 rounded-xl text-xs text-rose-900">
+        <strong>Pregunta de Examen:</strong> ¿Es posible administrar un proyecto si sólo se desarrolla un calendario macroscópico?<br>
+        <strong>Respuesta:</strong> <em>NO. En proyectos medianos o grandes es imposible porque no permite identificar la Ruta Crítica, ni coordinar dependencias paralelas, ni monitorear el progreso objetivo con técnicas cuantitativas como el Valor Ganado.</em>
+      </div>
+    </section>
+
+    <!-- 2. RUTA CRÍTICA Y LEY DE BROOKS -->
+    <section class="glass-card rounded-2xl p-6 md:p-8 shadow-sm">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-800 flex items-center justify-center font-bold text-xl">
+          <i class="fa-solid fa-route"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-slate-800">2. Ruta Crítica y Causas de Retraso</h2>
+          <span class="text-xs text-slate-500 font-medium">Por qué fallan los proyectos y la Ley de Brooks</span>
+        </div>
+      </div>
+
+      <div class="space-y-6 text-xs">
+        <div class="p-4 bg-slate-100 rounded-xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-1">Ruta Crítica (Critical Path)</h3>
+          <p class="text-slate-700 leading-relaxed">
+            Es la secuencia continua de tareas dependientes más larga del proyecto. <strong>No tiene holgura de tiempo</strong>: si cualquiera de las tareas que componen la ruta crítica se atrasa un solo día, <em>la fecha final de entrega del proyecto entero se posterga un día</em>.
+          </p>
+        </div>
+
+        <div class="p-4 bg-rose-50 border border-rose-200 rounded-xl text-rose-950">
+          <h3 class="font-bold text-rose-900 text-sm mb-1">La Ley de Brooks (Fred Brooks — The Mythical Man-Month)</h3>
+          <p class="italic text-slate-700 mb-2">
+            "Agregar más personal a un proyecto de software con retraso lo retrasará aún más."
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-2">
+            <div class="p-2 bg-white rounded border">
+              <strong>1. Ramp-up (Aprendizaje):</strong> Los ingresantes detienen a los seniors para capacitarse.
+            </div>
+            <div class="p-2 bg-white rounded border">
+              <strong>2. Canales de Comunicación:</strong> Crecen cuadráticamente: $\frac{N(N-1)}{2}$.
+            </div>
+            <div class="p-2 bg-white rounded border">
+              <strong>3. Indivisibilidad:</strong> Hay tareas no paralelizables en la ruta crítica.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. ANÁLISIS DE VALOR GANADO (AVG / EVM) -->
+    <section class="glass-card rounded-2xl p-6 md:p-8 shadow-sm">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-xl bg-pink-100 text-pink-700 flex items-center justify-center font-bold text-xl">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-slate-800">3. Análisis de Valor Ganado (AVG / EVM)</h2>
+          <span class="text-xs text-slate-500 font-medium">La técnica cuantitativa estándar a nivel mundial</span>
+        </div>
+      </div>
+
+      <p class="text-sm text-slate-700 leading-relaxed mb-6">
+        El Valor Ganado compara en un instante determinado del tiempo cuánto trabajo dictaba el plan que debíamos tener hecho, cuánto completamos efectivamente y cuánto dinero/horas costó lograrlo.
+      </p>
+
+      <!-- Las 4 variables base -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs mb-8">
+        <div class="p-4 bg-slate-100 rounded-xl border border-slate-200">
+          <strong class="text-slate-900 block font-bold text-sm">PAC ($BAC$)</strong>
+          <span class="text-slate-500 text-[11px] block mb-1">Presupuesto al Concluir</span>
+          <p class="text-slate-600">Esfuerzo total presupuestado para el 100% del proyecto (horas o días-persona).</p>
+        </div>
+        <div class="p-4 bg-amber-50 rounded-xl border border-amber-200">
+          <strong class="text-amber-900 block font-bold text-sm">CPTC ($PV$)</strong>
+          <span class="text-amber-700 text-[11px] block mb-1">Costo Planificado Hoy</span>
+          <p class="text-slate-700">La suma del esfuerzo presupuestado de todas las tareas que debían estar terminadas a la fecha actual.</p>
+        </div>
+        <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-200">
+          <strong class="text-emerald-900 block font-bold text-sm">CPTR ($EV$)</strong>
+          <span class="text-emerald-700 text-[11px] block mb-1">Valor Ganado Hoy</span>
+          <p class="text-slate-700">La suma del valor presupuestado de las tareas que realmente fueron completadas a la fecha actual.</p>
+        </div>
+        <div class="p-4 bg-cyan-50 rounded-xl border border-cyan-200">
+          <strong class="text-cyan-900 block font-bold text-sm">CRTR ($AC$)</strong>
+          <span class="text-cyan-700 text-[11px] block mb-1">Costo Real Gastado</span>
+          <p class="text-slate-700">Las horas o dinero reales que el equipo anotó en sus planillas para realizar esas tareas terminadas.</p>
+        </div>
+      </div>
+
+      <!-- Fórmulas e Índices -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+        <div class="p-4 bg-slate-100 rounded-xl border border-slate-200 space-y-2">
+          <h4 class="font-bold text-slate-900 text-sm">Métricas de Calendario:</h4>
+          <div><strong>Variación en Calendario (VC / SV):</strong> $VC = CPTR - CPTC$
+            <p class="text-[11px] text-slate-500">Si $VC &lt; 0$, el proyecto está <em>atrasado</em>. Si $VC &gt; 0$, está <em>adelantado</em>.</p>
+          </div>
+          <div><strong>Índice de Rendimiento en Calendario (IRS / SPI):</strong> $IRS = \frac{CPTR}{CPTC}$
+            <p class="text-[11px] text-slate-500">Si $IRS &lt; 1$, el proyecto avanza a menor velocidad de la esperada.</p>
+          </div>
+        </div>
+
+        <div class="p-4 bg-slate-100 rounded-xl border border-slate-200 space-y-2">
+          <h4 class="font-bold text-slate-900 text-sm">Métricas de Costo:</h4>
+          <div><strong>Variación en Costo (VCosto / CV):</strong> $VCosto = CPTR - CRTR$
+            <p class="text-[11px] text-slate-500">Si $VCosto &lt; 0$, hay <em>sobrecosto</em>. Si $VCosto &gt; 0$, hay <em>ahorro</em>.</p>
+          </div>
+          <div><strong>Índice de Rendimiento de Costo (IRC / CPI):</strong> $IRC = \frac{CPTR}{CRTR}$
+            <p class="text-[11px] text-slate-500">Si $IRC &lt; 1$, rinde menos de un peso/hora por cada uno invertido.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ejercicio 5 Resuelto al detalle -->
+      <div class="mt-8 p-5 bg-slate-900 text-white rounded-2xl">
+        <div class="border-b border-slate-700 pb-2 mb-4">
+          <span class="text-xs text-pink-400 font-bold uppercase tracking-wider">Cálculo Oficial del TP 5</span>
+          <h3 class="text-lg font-bold text-white">Resolución del Ejercicio Práctico de Valor Ganado</h3>
+        </div>
+
+        <p class="text-xs text-slate-300 mb-4">
+          Un proyecto de 56 tareas planeadas tiene un presupuesto total de **$PAC = 582$ persona-días**. Al momento del análisis, el calendario dictaba que debían estar listas 15 tareas, pero solo se terminaron 12.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-center text-xs mb-4">
+          <div class="p-3 bg-slate-800 rounded-xl">
+            <span class="text-slate-400 block text-[11px]">CPTC (Tareas 1 a 15)</span>
+            <strong class="text-amber-300 text-base">156.5 p-d</strong>
+          </div>
+          <div class="p-3 bg-slate-800 rounded-xl">
+            <span class="text-slate-400 block text-[11px]">CPTR (Tareas 1 a 12)</span>
+            <strong class="text-emerald-300 text-base">126.5 p-d</strong>
+          </div>
+          <div class="p-3 bg-slate-800 rounded-xl">
+            <span class="text-slate-400 block text-[11px]">CRTR (Reales 1 a 12)</span>
+            <strong class="text-cyan-300 text-base">127.5 p-d</strong>
+          </div>
+          <div class="p-3 bg-slate-800 rounded-xl">
+            <span class="text-slate-400 block text-[11px]">PAC Total</span>
+            <strong class="text-white text-base">582.0 p-d</strong>
+          </div>
+        </div>
+
+        <div class="space-y-1 text-xs text-slate-300 bg-slate-800/80 p-3 rounded-xl border border-slate-700">
+          <div>&bull; <strong>% Calendarizado:</strong> $\frac{156.5}{582} \times 100 = \mathbf{26.89\%}$</div>
+          <div>&bull; <strong>% Completo Real:</strong> $\frac{126.5}{582} \times 100 = \mathbf{21.74\%}$</div>
+          <div>&bull; <strong>Variación en Calendario (VC):</strong> $126.5 - 156.5 = \mathbf{-30\text{ persona-días}}$ <span class="text-rose-400 font-bold">(Demora de 30 días-persona)</span></div>
+          <div>&bull; <strong>Índice Calendario (IRS):</strong> $\frac{126.5}{156.5} = \mathbf{0.8083}$ <span class="text-rose-400 font-bold">(Ritmo al 80.8%)</span></div>
+          <div>&bull; <strong>Variación en Costo (VCosto):</strong> $126.5 - 127.5 = \mathbf{-1\text{ persona-día}}$</div>
+          <div>&bull; <strong>Índice de Costo (IRC):</strong> $\frac{126.5}{127.5} = \mathbf{0.9922}$ <span class="text-emerald-400 font-bold">(Prácticamente en presupuesto)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation Footer -->
+    <div class="flex items-center justify-between pt-6 border-t border-slate-200 text-sm font-semibold">
+      <a href="unidad4.html" class="px-4 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-700 transition">
+        &larr; Unidad 4
+      </a>
+      <a href="unidad6.html" class="px-5 py-2.5 rounded-xl bg-pink-600 hover:bg-pink-700 text-white shadow transition">
+        Siguiente: Unidad 6 (Riesgos) &rarr;
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs">
+    Tecnicatura Universitaria en Programación &bull; Gestión de Desarrollo de Software
+  </footer>
+</body>
+</html>

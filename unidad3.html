@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unidad 3: Métricas de Proceso, Proyecto y Producto | Guía de Estudio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+  <!-- Mermaid for diagrams -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+  <link rel="stylesheet" href="mobile.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .glass-card { background: rgba(255, 255, 255, 0.98); border: 1px solid #e2e8f0; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <!-- Header & Nav Bar -->
+  <header class="bg-cyan-900 text-white sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 text-lg font-bold hover:text-cyan-200 transition">
+        <i class="fa-solid fa-arrow-left text-sm"></i>
+        <span>Volver al Inicio</span>
+      </a>
+      <div class="flex items-center gap-1 sm:gap-2 text-xs font-semibold overflow-x-auto no-scrollbar smooth-scroll-x py-1">
+        <a href="unidad1.html" class="px-2.5 py-1.5 rounded-lg hover:bg-cyan-800 text-cyan-200 transition">U1</a>
+        <a href="unidad2.html" class="px-2.5 py-1.5 rounded-lg hover:bg-cyan-800 text-cyan-200 transition">U2</a>
+        <a href="unidad3.html" class="px-2.5 py-1.5 rounded-lg bg-cyan-700 text-white font-bold">U3</a>
+        <a href="unidad4.html" class="px-2.5 py-1.5 rounded-lg hover:bg-cyan-800 text-cyan-200 transition">U4</a>
+        <a href="unidad5.html" class="px-2.5 py-1.5 rounded-lg hover:bg-cyan-800 text-cyan-200 transition">U5</a>
+        <a href="unidad6.html" class="px-2.5 py-1.5 rounded-lg hover:bg-cyan-800 text-cyan-200 transition">U6</a>
+        <a href="unidad7.html" class="px-2.5 py-1.5 rounded-lg hover:bg-cyan-800 text-cyan-200 transition">U7</a>
+        <a href="unidad8.html" class="px-2.5 py-1.5 rounded-lg hover:bg-cyan-800 text-cyan-200 transition">U8</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Title Banner -->
+  <div class="bg-gradient-to-r from-cyan-900 via-teal-800 to-blue-900 text-white py-10 px-4 shadow-inner">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex items-center gap-2 mb-2 text-xs uppercase tracking-wider font-bold text-cyan-200">
+        <span>Unidad Temática 3</span> &bull; <span>Pressman Cap. 25</span>
+      </div>
+      <h1 class="text-3xl md:text-5xl font-black">Métricas de Proceso y de Proyecto</h1>
+      <p class="text-cyan-100 text-base md:text-lg mt-3 font-light max-w-3xl">
+        De la evaluación subjetiva al control cuantitativo: medidas directas e indirectas, normalización por tamaño (LOC) y función (PF), calidad y la fórmula clave de ERD.
+      </p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto px-4 py-10 flex-1 w-full space-y-12">
+
+    <!-- 1. MEDIDA VS MEDICIÓN VS MÉTRICA -->
+    <section class="glass-card rounded-2xl p-6 md:p-8 shadow-sm">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-xl bg-cyan-100 text-cyan-700 flex items-center justify-center font-bold text-xl">
+          <i class="fa-solid fa-ruler-combined"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-slate-800">1. Jerarquía Conceptual Básica</h2>
+          <span class="text-xs text-slate-500 font-medium">Definición canónica según IEEE</span>
+        </div>
+      </div>
+
+      <p class="text-sm text-slate-700 leading-relaxed mb-6">
+        En ingeniería de software no se debe confundir un dato aislado con un indicador de gestión. Existen tres niveles fundamentales:
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+        <div class="p-4 bg-slate-100 rounded-xl border border-slate-200">
+          <span class="font-bold text-cyan-900 block text-sm mb-1">Medida</span>
+          <p class="text-slate-600">Indicio cuantitativo de la extensión, cantidad, dimensión o tamaño de algún atributo de un producto o proceso (ej: <em>1.500 líneas de código</em> o <em>25 horas trabajadas</em>).</p>
+        </div>
+        <div class="p-4 bg-slate-100 rounded-xl border border-slate-200">
+          <span class="font-bold text-cyan-900 block text-sm mb-1">Medición</span>
+          <p class="text-slate-600">El acto u operación mediante el cual se determina una medida (ej: <em>ejecutar un analizador estático o registrar horas en un timesheet</em>).</p>
+        </div>
+        <div class="p-4 bg-cyan-50 border border-cyan-200 rounded-xl">
+          <span class="font-bold text-cyan-900 block text-sm mb-1">Métrica (IEEE)</span>
+          <p class="text-cyan-950 font-medium">Una medida cuantitativa del grado en que un sistema, componente o proceso posee un atributo determinado. Relaciona dos o más medidas (ej: <em>densidad de defectos = fallos / KLOC</em>).</p>
+        </div>
+      </div>
+
+      <div class="mt-4 p-3 bg-slate-100 rounded-xl text-xs text-slate-600 italic text-center">
+        “No todo lo que puede contarse cuenta y no todo lo que cuenta puede contarse.” — Albert Einstein
+      </div>
+    </section>
+
+    <!-- 2. LAS 5 ACTIVIDADES DEL PROCESO DE MEDICIÓN -->
+    <section class="glass-card rounded-2xl p-6 md:p-8 shadow-sm">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center font-bold text-xl">
+          <i class="fa-solid fa-arrows-spin"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-slate-800">2. El Ciclo de Medición (5 Actividades)</h2>
+          <span class="text-xs text-slate-500 font-medium">De la definición inicial a la retroalimentación técnica</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-5 gap-3 text-xs text-center">
+        <div class="p-3 bg-slate-100 rounded-xl border border-slate-200">
+          <span class="w-6 h-6 rounded-full bg-cyan-600 text-white font-bold inline-flex items-center justify-center mb-2">1</span>
+          <strong class="block text-slate-900 mb-1">Formulación</strong>
+          <span class="text-slate-600 text-[11px]">Derivar métricas apropiadas para el software que se construye.</span>
+        </div>
+        <div class="p-3 bg-slate-100 rounded-xl border border-slate-200">
+          <span class="w-6 h-6 rounded-full bg-cyan-600 text-white font-bold inline-flex items-center justify-center mb-2">2</span>
+          <strong class="block text-slate-900 mb-1">Recolección</strong>
+          <span class="text-slate-600 text-[11px]">Mecanismo para acumular los datos requeridos.</span>
+        </div>
+        <div class="p-3 bg-slate-100 rounded-xl border border-slate-200">
+          <span class="w-6 h-6 rounded-full bg-cyan-600 text-white font-bold inline-flex items-center justify-center mb-2">3</span>
+          <strong class="block text-slate-900 mb-1">Análisis</strong>
+          <span class="text-slate-600 text-[11px]">Cálculo matemático y herramientas estadísticas.</span>
+        </div>
+        <div class="p-3 bg-slate-100 rounded-xl border border-slate-200">
+          <span class="w-6 h-6 rounded-full bg-cyan-600 text-white font-bold inline-flex items-center justify-center mb-2">4</span>
+          <strong class="block text-slate-900 mb-1">Interpretación</strong>
+          <span class="text-slate-600 text-[11px]">Evaluación de resultados para comprender la calidad.</span>
+        </div>
+        <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-200">
+          <span class="w-6 h-6 rounded-full bg-emerald-600 text-white font-bold inline-flex items-center justify-center mb-2">5</span>
+          <strong class="block text-emerald-900 mb-1">Retroalimentación</strong>
+          <span class="text-emerald-950 text-[11px]">Recomendaciones de mejora transmitidas al equipo.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. CLASIFICACIÓN: PROCESO, PROYECTO Y PRODUCTO -->
+    <section class="glass-card rounded-2xl p-6 md:p-8 shadow-sm">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xl">
+          <i class="fa-solid fa-layer-group"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-slate-800">3. Clasificación de Métricas</h2>
+          <span class="text-xs text-slate-500 font-medium">Proceso (estratégicas), Proyecto (tácticas) y Producto (técnicas)</span>
+        </div>
+      </div>
+
+      <div class="space-y-6 text-xs">
+        <!-- Métricas de Proceso -->
+        <div class="border-l-4 border-cyan-600 pl-4 py-1">
+          <h3 class="text-sm font-bold text-cyan-900 uppercase tracking-wider">A. Métricas de Proceso (Estratégicas a largo plazo)</h3>
+          <p class="text-slate-700 mt-1">
+            Se recopilan a través de todos los proyectos durante años. Su fin es mejorar el nivel global de madurez de la empresa.
+          </p>
+          <div class="mt-2 p-3 bg-rose-50 border border-rose-200 rounded-xl text-rose-950 space-y-1">
+            <strong>Reglas de Oro Éticas para Métricas de Proceso (Pregunta de Examen):</strong>
+            <ul class="list-disc list-inside space-y-0.5 mt-1 text-[11px]">
+              <li><strong>NUNCA usar métricas para evaluar, comparar o amenazar personas.</strong></li>
+              <li>Los datos individuales son estrictamente privados de cada desarrollador.</li>
+              <li>Consensuar metas transparentes con los equipos.</li>
+              <li>Un indicador que señale un problema no es negativo: es una <strong>oportunidad de mejora</strong>.</li>
+              <li>No obsesionarse con una sola métrica excluyendo otras vitales.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Métricas de Proyecto -->
+        <div class="border-l-4 border-indigo-600 pl-4 py-1">
+          <h3 class="text-sm font-bold text-indigo-900 uppercase tracking-wider">B. Métricas de Proyecto (Tácticas para el día a día)</h3>
+          <p class="text-slate-700 mt-1">
+            Se usan para controlar el avance, comparar <em>lo real versus lo estimado (actual vs forecast)</em>, mitigar riesgos en curso y ajustar el cronograma para evitar demoras.
+          </p>
+        </div>
+
+        <!-- Métricas de Producto -->
+        <div class="border-l-4 border-emerald-600 pl-4 py-1">
+          <h3 class="text-sm font-bold text-emerald-900 uppercase tracking-wider">C. Métricas de Producto (Técnicas)</h3>
+          <p class="text-slate-700 mt-1">
+            Evalúan la calidad intrínseca del software: complejidad ciclomática, modularidad, deuda técnica, cobertura de pruebas unitarias y facilidad de mantenimiento.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. MÉTRICAS DE CALIDAD Y LA FÓRMULA DE ERD -->
+    <section class="glass-card rounded-2xl p-6 md:p-8 shadow-sm">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xl">
+          <i class="fa-solid fa-award"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-slate-800">4. Métricas de Calidad y Eficiencia de Remoción (ERD)</h2>
+          <span class="text-xs text-slate-500 font-medium">La fórmula más importante de la Unidad 3</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs mb-8">
+        <div class="p-3 bg-slate-100 rounded-xl border border-slate-200">
+          <strong class="text-slate-900 block font-bold mb-1">Exactitud</strong>
+          <span class="text-slate-600">Grado en que realiza la función requerida sin errores en producción en un período dado.</span>
+        </div>
+        <div class="p-3 bg-slate-100 rounded-xl border border-slate-200">
+          <strong class="text-slate-900 block font-bold mb-1">Mantenibilidad</strong>
+          <span class="text-slate-600">Facilidad y rapidez con la que un programa puede modificarse o corregirse si surge un fallo.</span>
+        </div>
+        <div class="p-3 bg-slate-100 rounded-xl border border-slate-200">
+          <strong class="text-slate-900 block font-bold mb-1">Integridad</strong>
+          <span class="text-slate-600">Capacidad para repeler ciberataques contra su seguridad (basado en amenaza y seguridad).</span>
+        </div>
+        <div class="p-3 bg-slate-100 rounded-xl border border-slate-200">
+          <strong class="text-slate-900 block font-bold mb-1">Usabilidad</strong>
+          <span class="text-slate-600">Facilidad de uso y aprendizaje cuantificada mediante encuestas y tiempos de tarea.</span>
+        </div>
+      </div>
+
+      <!-- FÓRMULA ERD -->
+      <div class="bg-cyan-50 border-2 border-cyan-300 p-6 rounded-2xl">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <span class="badge bg-cyan-200 text-cyan-800 mb-2">Fórmula Clave de Examen</span>
+            <h3 class="text-xl font-black text-cyan-950">Eficiencia de Remoción del Defecto (ERD)</h3>
+            <p class="text-xs text-slate-700 mt-2 max-w-xl">
+              Mide la capacidad de filtrado que tienen las actividades de revisión técnica y testing aplicadas por el equipo antes de que el software sea entregado al cliente.
+            </p>
+          </div>
+          <div class="bg-white p-4 rounded-xl shadow-sm border border-cyan-200 text-center min-w-[200px]">
+            <div class="text-2xl font-black text-cyan-700 py-1">
+              $$ERD = \frac{E}{E + D}$$
+            </div>
+            <div class="text-[11px] text-slate-500 font-medium mt-1">
+              $E$: Errores pre-entrega<br>$D$: Defectos post-entrega
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 pt-4 border-t border-cyan-200/60 text-xs text-cyan-950 space-y-1">
+          <p><strong>Interpretación práctica:</strong></p>
+          <ul class="list-disc list-inside space-y-0.5 text-slate-700">
+            <li>Si el equipo detectó 90 errores durante el desarrollo ($E = 90$) y el usuario reportó 10 defectos en producción ($D = 10$):  
+              $$ERD = \frac{90}{90 + 10} = 0.90 \quad (90\%)$$
+            </li>
+            <li>Un $ERD$ cercano a $1.0$ (o 100%) demuestra que casi la totalidad de las anomalías fueron contenidas por los filtros internos de calidad del equipo.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation Footer -->
+    <div class="flex items-center justify-between pt-6 border-t border-slate-200 text-sm font-semibold">
+      <a href="unidad2.html" class="px-4 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-700 transition">
+        &larr; Unidad 2
+      </a>
+      <a href="unidad4.html" class="px-5 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white shadow transition">
+        Siguiente: Unidad 4 (Estimaciones) &rarr;
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs">
+    Tecnicatura Universitaria en Programación &bull; Gestión de Desarrollo de Software
+  </footer>
+</body>
+</html>

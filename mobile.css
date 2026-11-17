@@ -1,0 +1,136 @@
+/* =========================================================
+   GUÍA DE ESTUDIO - RESPONSIVE & MOBILE-FIRST STYLESHEET
+   Optimizaciones avanzadas para celulares y pantallas táctiles
+   ========================================================= */
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  touch-action: manipulation;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scroll horizontal suave en elementos con desborde */
+.smooth-scroll-x {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Ocultar scrollbar visual pero mantener deslizamiento */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Fórmulas matemáticas en celulares: scrolleables sin romper el layout */
+.katex-display {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+  padding: 0.5rem 0.25rem !important;
+  max-width: 100% !important;
+  scrollbar-width: thin;
+}
+
+/* Diagramas Mermaid en celulares */
+.mermaid {
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  max-width: 100% !important;
+  display: block;
+}
+
+.mermaid svg {
+  max-width: 100% !important;
+  height: auto !important;
+  min-width: 280px;
+}
+
+/* Tablas responsivas */
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Botones y enlaces táctiles accesibles (Mobile friendly touch targets) */
+@media (max-width: 768px) {
+  /* Tipografía fluida y compacta */
+  h1 {
+    font-size: 1.75rem !important;
+    line-height: 2.15rem !important;
+  }
+  h2 {
+    font-size: 1.35rem !important;
+    line-height: 1.75rem !important;
+  }
+  h3 {
+    font-size: 1.15rem !important;
+    line-height: 1.5rem !important;
+  }
+
+  .glass-card {
+    padding: 1.15rem !important;
+    border-radius: 1rem !important;
+  }
+
+  /* Botones táctiles cómodos para los dedos (mínimo 42px) */
+  button, 
+  .btn,
+  nav a {
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Floating menu adaptado a celulares */
+  #floatingMenu {
+    position: fixed !important;
+    width: calc(100vw - 2rem) !important;
+    left: 1rem !important;
+    right: 1rem !important;
+    bottom: 5.5rem !important;
+    max-height: 75vh;
+    overflow-y: auto;
+    z-index: 9999 !important;
+  }
+
+  /* Ajuste de márgenes del contenedor principal */
+  main {
+    padding-left: 0.85rem !important;
+    padding-right: 0.85rem !important;
+    padding-top: 1.25rem !important;
+    padding-bottom: 5rem !important;
+  }
+
+  /* Espaciado del header hero */
+  header {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* Pantallas extra chicas (iPhone SE, Galaxy A series < 400px) */
+@media (max-width: 400px) {
+  h1 {
+    font-size: 1.5rem !important;
+    line-height: 1.9rem !important;
+  }
+  .glass-card {
+    padding: 0.85rem !important;
+  }
+  .grid-cols-2 {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+}

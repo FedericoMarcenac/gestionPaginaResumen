@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unidad 4: Estimaciones de Proyectos | Guía de Estudio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+  <!-- Mermaid for diagrams -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+  <link rel="stylesheet" href="mobile.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .glass-card { background: rgba(255, 255, 255, 0.98); border: 1px solid #e2e8f0; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <!-- Header & Nav Bar -->
+  <header class="bg-amber-950 text-white sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 text-lg font-bold hover:text-amber-200 transition">
+        <i class="fa-solid fa-arrow-left text-sm"></i>
+        <span>Volver al Inicio</span>
+      </a>
+      <div class="flex items-center gap-1 sm:gap-2 text-xs font-semibold overflow-x-auto no-scrollbar smooth-scroll-x py-1">
+        <a href="unidad1.html" class="px-2.5 py-1.5 rounded-lg hover:bg-amber-900 text-amber-200 transition">U1</a>
+        <a href="unidad2.html" class="px-2.5 py-1.5 rounded-lg hover:bg-amber-900 text-amber-200 transition">U2</a>
+        <a href="unidad3.html" class="px-2.5 py-1.5 rounded-lg hover:bg-amber-900 text-amber-200 transition">U3</a>
+        <a href="unidad4.html" class="px-2.5 py-1.5 rounded-lg bg-amber-600 text-white font-bold">U4</a>
+        <a href="unidad5.html" class="px-2.5 py-1.5 rounded-lg hover:bg-amber-900 text-amber-200 transition">U5</a>
+        <a href="unidad6.html" class="px-2.5 py-1.5 rounded-lg hover:bg-amber-900 text-amber-200 transition">U6</a>
+        <a href="unidad7.html" class="px-2.5 py-1.5 rounded-lg hover:bg-amber-900 text-amber-200 transition">U7</a>
+        <a href="unidad8.html" class="px-2.5 py-1.5 rounded-lg hover:bg-amber-900 text-amber-200 transition">U8</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Title Banner -->
+  <div class="bg-gradient-to-r from-amber-900 via-amber-800 to-yellow-900 text-white py-10 px-4 shadow-inner">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex items-center gap-2 mb-2 text-xs uppercase tracking-wider font-bold text-amber-300">
+        <span>Unidad Temática 4</span> &bull; <span>Pressman Cap. 26</span>
+      </div>
+      <h1 class="text-3xl md:text-5xl font-black">Estimaciones de Proyectos de Software</h1>
+      <p class="text-amber-100 text-base md:text-lg mt-3 font-light max-w-3xl">
+        Aproximación empírica del esfuerzo y costo: recursos (Personal, EIS, COTS), fórmula PERT de tres puntos, Puntos de Función (PF), estimación basada en procesos y reconciliación.
+      </p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto px-4 py-10 flex-1 w-full space-y-12">
+
+    <!-- 1. LA NATURALEZA DE LA ESTIMACIÓN -->
+    <section class="glass-card rounded-2xl p-6 md:p-8 shadow-sm">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-xl">
+          <i class="fa-solid fa-calculator"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-slate-800">1. La Naturaleza de la Estimación</h2>
+          <span class="text-xs text-slate-500 font-medium">Una aproximación empírica, no una certeza matemática</span>
+        </div>
+      </div>
+
+      <p class="text-sm text-slate-700 leading-relaxed mb-4">
+        La estimación de software nunca será una ciencia exacta porque involucra factores humanos, tecnologías cambiantes y requisitos en evolución. Consiste en **describir el ámbito, descomponer el problema en componentes menores y estimar cada uno usando datos históricos y experiencia previa**.
+      </p>
+
+      <div class="p-4 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-950 italic">
+        "Es distintivo de una mente instruida descansar satisfecha con el grado de precisión que la naturaleza del sujeto admite, y no buscar exactitud cuando sólo es posible una aproximación a la verdad." — Aristóteles (citado en Pressman).
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 text-xs">
+        <div class="p-3 bg-slate-100 rounded-xl">
+          <strong class="text-amber-900 block font-bold mb-1">Complejidad:</strong>
+          <span class="text-slate-600">Agrega incertidumbre relativa a la experiencia del equipo en ese tipo de algoritmos.</span>
+        </div>
+        <div class="p-3 bg-slate-100 rounded-xl">
+          <strong class="text-amber-900 block font-bold mb-1">Tamaño:</strong>
+          <span class="text-slate-600">A mayor tamaño, crecen exponencialmente las interdependencias y posibles puntos de falla.</span>
+        </div>
+        <div class="p-3 bg-slate-100 rounded-xl">
+          <strong class="text-amber-900 block font-bold mb-1">Incertidumbre Estructural:</strong>
+          <span class="text-slate-600">Desconocimiento del dominio de negocio o falta de datos históricos confiables.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. RECURSOS A ESTIMAR -->
+    <section class="glass-card rounded-2xl p-6 md:p-8 shadow-sm">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-xl bg-orange-100 text-orange-700 flex items-center justify-center font-bold text-xl">
+          <i class="fa-solid fa-boxes-stacked"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-slate-800">2. Los Tres Recursos a Contemplar</h2>
+          <span class="text-xs text-slate-500 font-medium">Personal, Entorno (EIS) y Software Reutilizable</span>
+        </div>
+      </div>
+
+      <div class="space-y-4 text-xs">
+        <!-- Personal -->
+        <div class="p-4 bg-slate-100 rounded-xl">
+          <h3 class="font-bold text-amber-950 text-sm mb-1">A. Personal Necesario (People)</h3>
+          <p class="text-slate-700 leading-relaxed">
+            Se evalúa: rol requerido (líder, arquitecto, dev senior), habilidades técnicas específicas, período de asignación y diferencias de zona horaria.
+          </p>
+          <div class="mt-2 p-2 bg-amber-100 border border-amber-300 rounded font-bold text-amber-900">
+            Regla de Oro: El número de personas requeridas debe determinarse SÓLO DESPUÉS de estimar el esfuerzo total en persona-meses (no al revés).
+          </div>
+        </div>
+
+        <!-- Entorno EIS -->
+        <div class="p-4 bg-slate-100 rounded-xl">
+          <h3 class="font-bold text-amber-950 text-sm mb-1">B. Entorno de Ingeniería de Software (EIS)</h3>
+          <p class="text-slate-700 leading-relaxed">
+            Hardware, servidores en la nube, licencias de software y herramientas de red que soportan el proyecto. El gerente debe garantizar las <em>ventanas temporales de acceso</em> a dicho equipamiento.
+          </p>
+        </div>
+
+        <!-- Componentes Reutilizables -->
+        <div class="p-4 bg-slate-100 rounded-xl">
+          <h3 class="font-bold text-amber-950 text-sm mb-1">C. Software Reutilizable (4 Categorías Clave):</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
+            <div class="p-2 bg-white rounded border">
+              <strong>1. Componentes Comerciales COTS:</strong> Librerías de terceros ya validadas y probadas en el mercado. Integración rápida.
+            </div>
+            <div class="p-2 bg-white rounded border">
+              <strong>2. Experiencia Completa:</strong> Código o diseños propios de proyectos anteriores que encajan 100% sin modificaciones.
+            </div>
+            <div class="p-2 bg-white rounded border">
+              <strong>3. Experiencia Parcial:</strong> Componentes previos que requieren cambios o refactorización. <em>(Aumenta el riesgo de estimación)</em>.
+            </div>
+            <div class="p-2 bg-white rounded border">
+              <strong>4. Componentes Nuevos:</strong> Desarrollados desde cero específicamente para este sistema.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. ESTIMACIÓN PERT A TRES PUNTOS -->
+    <section class="glass-card rounded-2xl p-6 md:p-8 shadow-sm">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-xl bg-yellow-100 text-yellow-800 flex items-center justify-center font-bold text-xl">
+          <i class="fa-solid fa-wave-square"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-slate-800">3. Estimación por Tres Puntos (Fórmula PERT)</h2>
+          <span class="text-xs text-slate-500 font-medium">La técnica probabilística más difundida en exámenes</span>
+        </div>
+      </div>
+
+      <div class="bg-amber-50 border-2 border-amber-300 p-6 rounded-2xl">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <span class="badge bg-amber-200 text-amber-900 mb-2">Fórmula Fundamental</span>
+            <h3 class="text-xl font-black text-amber-950">Promedio Ponderado PERT</h3>
+            <p class="text-xs text-slate-700 mt-2 max-w-xl leading-relaxed">
+              En lugar de forzar a un programador a dar un único número arriesgado, se le solicitan tres escenarios basados en la distribución Beta.
+            </p>
+          </div>
+          <div class="bg-white p-4 rounded-xl shadow-sm border border-amber-300 text-center min-w-[220px]">
+            <div class="text-2xl font-black text-amber-800 py-1">
+              $$S = \frac{S_{opt} + 4S_m + S_{pes}}{6}$$
+            </div>
+            <div class="text-[11px] text-slate-500 mt-1">
+              Optimista + 4(Más Probable) + Pesimista
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 pt-4 border-t border-amber-200 text-xs text-amber-950 space-y-1">
+          <strong>Ejemplo Práctico de Cálculo:</strong>
+          <p class="text-slate-700">
+            Si para un módulo de login se estima: Optimista $S_{opt} = 10\text{ hs}$, Más Probable $S_m = 16\text{ hs}$, Pesimista $S_{pes} = 34\text{ hs}$:
+            $$S = \frac{10 + 4(16) + 34}{6} = \frac{10 + 64 + 34}{6} = \frac{108}{6} = \mathbf{18\text{ horas}}$$
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. PUNTOS DE FUNCIÓN Y EJEMPLO CAD -->
+    <section class="glass-card rounded-2xl p-6 md:p-8 shadow-sm">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-xl bg-amber-200 text-amber-900 flex items-center justify-center font-bold text-xl">
+          <i class="fa-solid fa-shapes"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-slate-800">4. Puntos de Función (PF) y Estimación por Procesos</h2>
+          <span class="text-xs text-slate-500 font-medium">El ejercicio canónico de Roger Pressman (Software CAD Mecánico)</span>
+        </div>
+      </div>
+
+      <p class="text-sm text-slate-700 leading-relaxed mb-4">
+        Los Puntos de Función miden la funcionalidad desde la perspectiva del usuario, independientemente del lenguaje de programación. Se computan 5 características del dominio de información:
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 text-center text-xs mb-6">
+        <div class="p-2.5 bg-slate-100 rounded-lg font-medium"><strong>EE:</strong> Entradas Externas</div>
+        <div class="p-2.5 bg-slate-100 rounded-lg font-medium"><strong>SE:</strong> Salidas Externas</div>
+        <div class="p-2.5 bg-slate-100 rounded-lg font-medium"><strong>CE:</strong> Consultas Externas</div>
+        <div class="p-2.5 bg-slate-100 rounded-lg font-medium"><strong>ALI:</strong> Archivos Lógicos Internos</div>
+        <div class="p-2.5 bg-slate-100 rounded-lg font-medium"><strong>AIE:</strong> Archivos Interfaz Ext.</div>
+      </div>
+
+      <!-- El caso CAD Mecánico -->
+      <div class="p-4 bg-slate-100 rounded-xl border border-slate-200 text-xs space-y-2">
+        <strong class="text-slate-900 block text-sm font-bold">El Caso Canónico: Sistema CAD Mecánico (Pressman)</strong>
+        <p class="text-slate-700">
+          En las clases se presenta un software CAD con 7 funciones (IUFC, AG2D, AG3D, GBD, FDGC, FCP, MAD) que arroja:
+        </p>
+        <ul class="list-disc list-inside text-slate-700 space-y-1">
+          <li><strong>Estimación basada en tamaño (LOC):</strong> 33.200 LOC estimadas. Con una productividad histórica de $620\text{ LOC/pm}$ y una tarifa de $\$8.000/\text{mes}$, resulta en <strong>54 persona-meses ($\$431.000$)</strong>.</li>
+          <li><strong>Estimación basada en procesos:</strong> Descomponiendo el esfuerzo en actividades de marco conceptual (comunicación 1%, riesgo 1%, análisis 8%, diseño 45%, código 10%, pruebas 36%), resulta en <strong>46 persona-meses ($\$368.000$)</strong>.</li>
+        </ul>
+        <div class="p-3 bg-amber-100 rounded-lg text-amber-950 font-bold mt-2">
+          ¿Qué hacer ante la divergencia (54 pm vs 46 pm)? — ¡RECONCILIACIÓN! El planificador debe verificar si se malinterpretó el alcance o si los datos de productividad no son aplicables a la tecnología actual, y negociar un valor consensuado (ej. ~50 pm).
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation Footer -->
+    <div class="flex items-center justify-between pt-6 border-t border-slate-200 text-sm font-semibold">
+      <a href="unidad3.html" class="px-4 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-700 transition">
+        &larr; Unidad 3
+      </a>
+      <a href="unidad5.html" class="px-5 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white shadow transition">
+        Siguiente: Unidad 5 (Calendario y Valor Ganado) &rarr;
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs">
+    Tecnicatura Universitaria en Programación &bull; Gestión de Desarrollo de Software
+  </footer>
+</body>
+</html>

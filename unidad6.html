@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unidad 6: Administración del Riesgo | Guía de Estudio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+  <!-- Mermaid for diagrams -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+  <link rel="stylesheet" href="mobile.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .glass-card { background: rgba(255, 255, 255, 0.98); border: 1px solid #e2e8f0; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <!-- Header & Nav Bar -->
+  <header class="bg-red-950 text-white sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 text-lg font-bold hover:text-red-200 transition">
+        <i class="fa-solid fa-arrow-left text-sm"></i>
+        <span>Volver al Inicio</span>
+      </a>
+      <div class="flex items-center gap-1 sm:gap-2 text-xs font-semibold overflow-x-auto no-scrollbar smooth-scroll-x py-1">
+        <a href="unidad1.html" class="px-2.5 py-1.5 rounded-lg hover:bg-red-900 text-red-200 transition">U1</a>
+        <a href="unidad2.html" class="px-2.5 py-1.5 rounded-lg hover:bg-red-900 text-red-200 transition">U2</a>
+        <a href="unidad3.html" class="px-2.5 py-1.5 rounded-lg hover:bg-red-900 text-red-200 transition">U3</a>
+        <a href="unidad4.html" class="px-2.5 py-1.5 rounded-lg hover:bg-red-900 text-red-200 transition">U4</a>
+        <a href="unidad5.html" class="px-2.5 py-1.5 rounded-lg hover:bg-red-900 text-red-200 transition">U5</a>
+        <a href="unidad6.html" class="px-2.5 py-1.5 rounded-lg bg-red-700 text-white font-bold">U6</a>
+        <a href="unidad7.html" class="px-2.5 py-1.5 rounded-lg hover:bg-red-900 text-red-200 transition">U7</a>
+        <a href="unidad8.html" class="px-2.5 py-1.5 rounded-lg hover:bg-red-900 text-red-200 transition">U8</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Title Banner -->
+  <div class="bg-gradient-to-r from-red-950 via-red-900 to-rose-950 text-white py-10 px-4 shadow-inner">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex items-center gap-2 mb-2 text-xs uppercase tracking-wider font-bold text-red-300">
+        <span>Unidad Temática 6</span> &bull; <span>Pressman Cap. 28</span>
+      </div>
+      <h1 class="text-3xl md:text-5xl font-black">Administración del Riesgo</h1>
+      <p class="text-red-100 text-base md:text-lg mt-3 font-light max-w-3xl">
+        Entender y gestionar la incertidumbre: estrategias reactivas vs. proactivas, tipologías de riesgo, matriz $5 \times 5$, línea de corte y Hoja de Información de Riesgo (HIR).
+      </p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto px-4 py-10 flex-1 w-full space-y-12">
+
+    <!-- 1. NATURALEZA DEL RIESGO -->
+    <section class="glass-card rounded-2xl p-6 md:p-8 shadow-sm">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-xl bg-red-100 text-red-800 flex items-center justify-center font-bold text-xl">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-slate-800">1. ¿Qué es un Riesgo de Software?</h2>
+          <span class="text-xs text-slate-500 font-medium">Las dos características inseparables: Incertidumbre y Pérdida</span>
+        </div>
+      </div>
+
+      <p class="text-sm text-slate-700 leading-relaxed mb-6">
+        Un riesgo es siempre un **problema potencial**: puede ocurrir o puede no ocurrir. La administración del riesgo busca anticiparse a la incertidumbre para evitar que los problemas se conviertan en crisis reales de proyecto.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+        <div class="p-4 bg-slate-100 rounded-xl border border-slate-200">
+          <strong class="text-red-900 block font-bold text-sm mb-1">1. Incertidumbre</strong>
+          <p class="text-slate-600">El evento no es 100% seguro. Se expresa como una **probabilidad de ocurrencia** ($P$). Si la probabilidad fuera del 100%, ya no es un riesgo: es una certeza (un problema en marcha).</p>
+        </div>
+        <div class="p-4 bg-slate-100 rounded-xl border border-slate-200">
+          <strong class="text-red-900 block font-bold text-sm mb-1">2. Pérdida</strong>
+          <p class="text-slate-600">Si el riesgo se concreta, genera un **impacto negativo** tangible en términos de costos monetarios, demora en el calendario o degradación del rendimiento técnico.</p>
+        </div>
+      </div>
+
+      <!-- Reactiva vs Proactiva -->
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+        <div class="p-4 bg-rose-50 border border-rose-200 rounded-xl">
+          <strong class="text-rose-900 block font-bold text-sm mb-1">Estrategia Reactiva ("Modo Bombero"):</strong>
+          <p class="text-slate-700">El equipo no planifica contingencias. Espera hasta que algo explota o sale mal y recién ahí activa la gestión de crisis improvisada.</p>
+        </div>
+        <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-xl">
+          <strong class="text-emerald-900 block font-bold text-sm mb-1">Estrategia Proactiva (Ingeniería de Software):</strong>
+          <p class="text-slate-700">Identifica los riesgos antes de comenzar, califica probabilidad e impacto, ejecuta planes de mitigación preventivos y tiene preparado un plan de contingencia por si se materializa.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. CLASIFICACIÓN DE RIESGOS -->
+    <section class="glass-card rounded-2xl p-6 md:p-8 shadow-sm">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-800 flex items-center justify-center font-bold text-xl">
+          <i class="fa-solid fa-tags"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-slate-800">2. Clasificación de Riesgos (Pregunta de Examen)</h2>
+          <span class="text-xs text-slate-500 font-medium">Por origen del impacto y por grado de previsibilidad</span>
+        </div>
+      </div>
+
+      <!-- Proyecto, Técnico, Empresarial -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs mb-8">
+        <div class="p-4 bg-slate-100 rounded-xl border border-slate-200">
+          <strong class="text-slate-900 block font-bold text-sm mb-1">Riesgos de Proyecto</strong>
+          <p class="text-slate-600">Amenazan el plan, el cronograma y el presupuesto. (Ej: renuncia de desarrolladores, tareas subestimadas, demoras del cliente).</p>
+        </div>
+        <div class="p-4 bg-slate-100 rounded-xl border border-slate-200">
+          <strong class="text-slate-900 block font-bold text-sm mb-1">Riesgos Técnicos</strong>
+          <p class="text-slate-600">Amenazan la calidad, arquitectura y funcionalidad del software. (Ej: tecnología inmadura, latencia excesiva, ambigüedad en especificaciones).</p>
+        </div>
+        <div class="p-4 bg-slate-100 rounded-xl border border-slate-200">
+          <strong class="text-slate-900 block font-bold text-sm mb-1">Riesgos Empresariales</strong>
+          <p class="text-slate-600">Amenazan la viabilidad económica del producto. (Ej: la competencia lanza antes un producto igual, quiebra del sponsor, rechazo de mercado).</p>
+        </div>
+      </div>
+
+      <!-- Conocidos, Predecibles, Impredecibles -->
+      <div class="p-4 bg-amber-50 border border-amber-200 rounded-xl text-xs space-y-2">
+        <strong class="text-amber-950 block text-sm font-bold">Por Grado de Previsibilidad:</strong>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+          <div class="p-2.5 bg-white rounded border">
+            <strong>Riesgos Conocidos:</strong> Surgen de una evaluación minuciosa del plan actual (ej: plazo irreal, falta de alcance definido).
+          </div>
+          <div class="p-2.5 bg-white rounded border">
+            <strong>Riesgos Predecibles:</strong> Se extrapolan de la experiencia en proyectos previos (ej: rotación de personal, lentitud en aprobaciones).
+          </div>
+          <div class="p-2.5 bg-white rounded border">
+            <strong>Riesgos Impredecibles:</strong> Fenómenos fortuitos imposibles de anticipar (ej: catástrofes naturales, quiebra repentina de un proveedor externo).
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. TABLA DE RIESGOS Y MATRIZ 5X5 -->
+    <section class="glass-card rounded-2xl p-6 md:p-8 shadow-sm">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-xl bg-red-100 text-red-800 flex items-center justify-center font-bold text-xl">
+          <i class="fa-solid fa-table"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-slate-800">3. Tabla de Riesgos, Matriz $5 \times 5$ y Línea de Corte</h2>
+          <span class="text-xs text-slate-500 font-medium">El mecanismo práctico de priorización</span>
+        </div>
+      </div>
+
+      <p class="text-sm text-slate-700 leading-relaxed mb-4">
+        Para gestionar los riesgos de forma eficiente, se utiliza el siguiente procedimiento de 5 pasos:
+      </p>
+
+      <ol class="list-decimal list-inside text-xs text-slate-700 space-y-1 mb-6">
+        <li>Se enuncian y enumeran todos los riesgos posibles.</li>
+        <li>Se les asigna una escala de <strong>Probabilidad</strong> (1: Improbable a 5: Alta) y de <strong>Impacto</strong> (1: Insignificante a 5: Catastrófico).</li>
+        <li>Se calcula el <strong>Valor de Riesgo ($P \times I$)</strong> y se ordena la tabla en forma descendente.</li>
+        <li>Se traza una <strong>Línea de Corte</strong> horizontal: sólo los que quedan por encima de la línea demandarán presupuesto y recursos.</li>
+        <li>Todo riesgo sobre la línea de corte requiere: <strong>Plan de Mitigación</strong>, <strong>Monitoreo continuo</strong> y <strong>Plan de Contingencia</strong>.</li>
+      </ol>
+
+      <!-- Hoja HIR y Exposición -->
+      <div class="bg-red-50 border-2 border-red-300 p-5 rounded-2xl text-xs text-red-950">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div>
+            <strong class="text-sm font-bold block">Hoja de Información de Riesgo (HIR):</strong>
+            <p class="text-slate-700 mt-1 max-w-xl">
+              Es el documento formal donde se registra cada riesgo crítico. Contiene su ID, descripción, condiciones de contexto, pasos de mitigación, métricas de monitoreo, plan de contingencia y su <strong>Disparador (Trigger)</strong> (fecha o evento exacto en que se activa la contingencia).
+            </p>
+          </div>
+          <div class="bg-white p-3 rounded-xl border border-red-300 text-center min-w-[180px]">
+            <div class="text-lg font-black text-red-700 py-1">
+              $$ER = P \times C$$
+            </div>
+            <div class="text-[10px] text-slate-500">
+              $ER$: Exposición al Riesgo<br>$P$: Probabilidad | $C$: Costo
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CASO COMPLETO: ROTACIÓN DE PERSONAL -->
+    <section class="glass-card rounded-2xl p-6 md:p-8 shadow-sm">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-xl bg-orange-100 text-orange-800 flex items-center justify-center font-bold text-xl">
+          <i class="fa-solid fa-user-xmark"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-slate-800">4. Caso Paradigmático de Examen: Riesgo de Rotación de Personal</h2>
+          <span class="text-xs text-slate-500 font-medium">Cómo se documenta en las tres fases de gestión</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+        <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-xl">
+          <strong class="text-emerald-900 block font-bold text-sm mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-shield text-emerald-600"></i> 1. Mitigación (Preventivo)
+          </strong>
+          <ul class="list-disc list-inside space-y-1 text-slate-700">
+            <li>Reunirse para indagar clima y expectativas salariales.</li>
+            <li>Evitar silos de conocimiento (que una persona sea la única que sabe de un módulo).</li>
+            <li>Establecer revisiones por pares (code review).</li>
+            <li>Asignar desarrollador de respaldo (shadowing).</li>
+          </ul>
+        </div>
+
+        <div class="p-4 bg-amber-50 border border-amber-200 rounded-xl">
+          <strong class="text-amber-900 block font-bold text-sm mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-eye text-amber-600"></i> 2. Monitoreo (Seguimiento)
+          </strong>
+          <ul class="list-disc list-inside space-y-1 text-slate-700">
+            <li>Evaluar la actitud y fricción interpersonal en presiones.</li>
+            <li>Monitorear la oferta laboral externa en el mercado tecnológico.</li>
+            <li>Verificar que todos los documentos y código sean autosuficientes.</li>
+          </ul>
+        </div>
+
+        <div class="p-4 bg-rose-50 border border-rose-200 rounded-xl">
+          <strong class="text-rose-900 block font-bold text-sm mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-fire-extinguisher text-rose-600"></i> 3. Contingencia (El fallo ocurrió)
+          </strong>
+          <ul class="list-disc list-inside space-y-1 text-slate-700">
+            <li>Activar de inmediato al miembro de reemplazo ya capacitado.</li>
+            <li>Reasignar tareas periféricas para descomprimir al nuevo dev.</li>
+            <li>Poner al empleado saliente en "modo transferencia" (wikis y videos en sus últimos días).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation Footer -->
+    <div class="flex items-center justify-between pt-6 border-t border-slate-200 text-sm font-semibold">
+      <a href="unidad5.html" class="px-4 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-700 transition">
+        &larr; Unidad 5
+      </a>
+      <a href="unidad7.html" class="px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white shadow transition">
+        Siguiente: Unidad 7 (Mantenimiento y Reingeniería) &rarr;
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs">
+    Tecnicatura Universitaria en Programación &bull; Gestión de Desarrollo de Software
+  </footer>
+</body>
+</html>
